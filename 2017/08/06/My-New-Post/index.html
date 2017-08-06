@@ -102,7 +102,7 @@
 <meta property="og:description" content="题目DescriptionGeorgia and Bob decide to play a self-invented game. They draw a row of grids on paper, number the grids from left to right by $1$ , $2$ , $3$ , …, and place $N$ chessmen on different gri">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://odzkskevi.qnssl.com/c76b52797bb489f0387716c46010da41?v=1501669288">
-<meta property="og:updated_time" content="2017-08-06T07:48:13.822Z">
+<meta property="og:updated_time" content="2017-08-06T10:13:49.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="POJ 1704">
 <meta name="twitter:description" content="题目DescriptionGeorgia and Bob decide to play a self-invented game. They draw a row of grids on paper, number the grids from left to right by $1$ , $2$ , $3$ , …, and place $N$ chessmen on different gri">
@@ -375,13 +375,13 @@
 <p> <img src="https://odzkskevi.qnssl.com/c76b52797bb489f0387716c46010da41?v=1501669288" alt=""></p>
 <p> Georgia and Bob move the chessmen in turn. Every time a player will choose a chessman, and move it to the left without going over any other chessmen or across the left edge. The player can freely choose number of steps the chessman moves, with the constraint that the chessman must be moved at least ONE step and one grid can at most contains ONE single chessman. The player who cannot make a move loses the game.<br> <a id="more"></a></p>
 <p>Georgia always plays first since “Lady first”. Suppose that Georgia and Bob both do their best in the game, i.e., if one of them knows a way to win the game, he or she will be able to carry it out.</p>
-<p>Given the initial positions of the n chessmen, can you predict who will finally win the game?</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line of the input contains a single integer $T$ $(1 \leq T \leq 20)$ , the number of test cases. Then $T$ cases follow. Each test case contains two lines. The first line consists of one integer $N$ $(1 \leq N \leq 1000)$ , indicating the number of chessmen. The second line contains $N$ different integers $P_1$, $P_2$ … $P_n$ $(1 \leq P_i \leq 10000)$, which are the initial positions of the $n$ chessmen.</p>
+<p>Given the initial positions of the $n$ chessmen, can you predict who will finally win the game?</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line of the input contains a single integer $T$ $(1 \leq T \leq 20)$ , the number of test cases. Then $T$ cases follow. Each test case contains two lines. The first line consists of one integer $N$ $(1 \leq N \leq 1000)$ , indicating the number of chessmen. The second line contains $N$ different integers $P_1$ , $P_2$ … $P_n$ $(1 \leq P_i \leq 10000)$ , which are the initial positions of the $n$ chessmen.</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case, prints a single line, “Georgia will win”, if Georgia will win the game; “Bob will win”, if Bob will win the game; otherwise ‘Not sure’.</p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">2</div><div class="line">3</div><div class="line">1 2 3</div><div class="line">8</div><div class="line">1 5 6 7 9 12 14 17</div></pre></td></tr></table></figure>
 <h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Bob will win</div><div class="line">Georgia will win</div></pre></td></tr></table></figure>
 <hr>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>Georgia和Bob在玩游戏，排成直线的格子上放有$n$个棋子。棋子$i$在从左向右的第$p_i$个格子上。两人轮流选择一个棋子向左移动，每次可以移动任意一格，但是不能超过其他的棋子，也不允许两个棋子放在一个格子里。假设二人足够聪明，当一方无法再进行移动棋子时，该方失败，Georgia先进行移动，问在每种条件下谁会获胜？</p>
+<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>Georgia和Bob在玩游戏，排成直线的格子上放有 $n$ 个棋子。棋子 $i$ 在从左向右的第 $p_i$ 个格子上。两人轮流选择一个棋子向左移动，每次可以移动任意一格，但是不能超过其他的棋子，也不允许两个棋子放在一个格子里。假设二人足够聪明，当一方无法再进行移动棋子时，该方失败，Georgia先进行移动，问在每种条件下谁会获胜？</p>
 <hr>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>棋子分为奇数和偶数两种情况.</p>
 <p>当棋子个数为偶数时，我们就可以把棋子两辆看成一对，每对棋子就可以转化成 $Nim$ 游戏里的一堆石子,每堆石子的个数就可以用棋子之间的间隔来表示。</p>

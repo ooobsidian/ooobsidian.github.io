@@ -61,7 +61,7 @@
     <link href="//ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
     <id>//ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-并查集/</id>
     <published>2017-08-08T07:15:27.000Z</published>
-    <updated>2017-08-08T07:45:32.570Z</updated>
+    <updated>2017-08-08T08:00:20.136Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/14593/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>There are so many different religions in the world today that it is difficult to keep track of them all. You are interested in finding out how many different religions students in your university believe in.</p>
 <p>You know that there are n students in your university $(0 &lt; n \leq<br>50000)$ . It is infeasible for you to ask every student their religious beliefs. Furthermore, many students are not comfortable expressing their beliefs. One way to avoid these problems is to ask $m$ $(0 \leq m \leq \frac{n(n-1)}{2})$ pairs of students and ask them whether they believe in the same religion (e.g. they may know if they both attend the same church). From this data, you may not know what each person believes in, but you can get an idea of the upper bound of how many different religions can be possibly represented on campus. You may assume that each student subscribes to at most one religion.<br><a id="more"></a></p>
@@ -174,7 +174,7 @@
     <link href="//ooobsidian.github.io/2017/08/07/POJ-3259/"/>
     <id>//ooobsidian.github.io/2017/08/07/POJ-3259/</id>
     <published>2017-08-07T14:15:19.000Z</published>
-    <updated>2017-08-08T07:06:03.214Z</updated>
+    <updated>2017-08-08T09:39:25.234Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="http://poj.org/problem?id=3259" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>While exploring his many farms, Farmer John has discovered a number of amazing wormholes. A wormhole is very peculiar because it is a one-way path that delivers you to its destination at a time that is BEFORE you entered the wormhole! Each of FJ’s farms comprises $ N (1 \leq N \leq 500) $ fields conveniently numbered $1…N$, $M$ $(1 \leq M \leq 2500)$ paths, and $W$ $(1 \leq W \leq 200)$ wormholes.</p>
 <p>As FJ is an avid time-traveling fan, he wants to do the following: start at some field, travel through some paths and wormholes, and return to the starting field a time before his initial departure. Perhaps he will be able to meet himself :) .<br><a id="more"></a><br>To help FJ find out whether this is possible or not, he will supply you with complete maps to $F$ $(1 \leq F \leq 5)$ of his farms. No paths will take longer than 10,000 seconds to travel and no wormhole can bring FJ back in time by more than $10,000$ seconds.</p>
@@ -203,6 +203,8 @@
     
     
       <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+    
+      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
     
       <category term="图论" scheme="//ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     

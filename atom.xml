@@ -4,9 +4,9 @@
   <subtitle>志当存高远</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="//ooobsidian.github.io/"/>
+  <link href="http://ooobsidian.github.io/"/>
   <updated>2017-08-08T07:27:17.408Z</updated>
-  <id>//ooobsidian.github.io/</id>
+  <id>http://ooobsidian.github.io/</id>
   
   <author>
     <name>obsidian</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>POJ 2349 Arctic Network (Kruskal)</title>
-    <link href="//ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/"/>
-    <id>//ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/</id>
+    <link href="http://ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/"/>
+    <id>http://ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/</id>
     <published>2017-08-08T07:17:33.000Z</published>
     <updated>2017-08-08T07:27:17.408Z</updated>
     
@@ -48,18 +48,18 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
-      <category term="图论" scheme="//ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>POJ 2524 Ubiquitous Religions (并查集)</title>
-    <link href="//ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
-    <id>//ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-并查集/</id>
+    <link href="http://ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-%E5%B9%B6%E6%9F%A5%E9%9B%86/"/>
+    <id>http://ooobsidian.github.io/2017/08/08/POJ-2524-Ubiquitous-Religions-并查集/</id>
     <published>2017-08-08T07:15:27.000Z</published>
     <updated>2017-08-08T08:00:20.136Z</updated>
     
@@ -85,18 +85,18 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
-      <category term="数据结构" scheme="//ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>POJ 1125 Stockbroker Grapevine (Floyd)</title>
-    <link href="//ooobsidian.github.io/2017/08/08/POJ-1125-Stockbroker-Grapevine-Floyd/"/>
-    <id>//ooobsidian.github.io/2017/08/08/POJ-1125-Stockbroker-Grapevine-Floyd/</id>
+    <link href="http://ooobsidian.github.io/2017/08/08/POJ-1125-Stockbroker-Grapevine-Floyd/"/>
+    <id>http://ooobsidian.github.io/2017/08/08/POJ-1125-Stockbroker-Grapevine-Floyd/</id>
     <published>2017-08-08T07:13:02.000Z</published>
     <updated>2017-08-08T07:14:24.231Z</updated>
     
@@ -124,18 +124,18 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
-      <category term="图论" scheme="//ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>POJ 1789 Truck History (Prim算法求最小生成树)</title>
-    <link href="//ooobsidian.github.io/2017/08/08/POJ-1789/"/>
-    <id>//ooobsidian.github.io/2017/08/08/POJ-1789/</id>
+    <link href="http://ooobsidian.github.io/2017/08/08/POJ-1789/"/>
+    <id>http://ooobsidian.github.io/2017/08/08/POJ-1789/</id>
     <published>2017-08-08T07:10:26.000Z</published>
     <updated>2017-08-08T07:11:51.331Z</updated>
     
@@ -161,18 +161,18 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
-      <category term="数据结构" scheme="//ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
   <entry>
     <title>POJ 3259 Wormholes (Bellman-Ford判断负环)</title>
-    <link href="//ooobsidian.github.io/2017/08/07/POJ-3259/"/>
-    <id>//ooobsidian.github.io/2017/08/07/POJ-3259/</id>
+    <link href="http://ooobsidian.github.io/2017/08/07/POJ-3259/"/>
+    <id>http://ooobsidian.github.io/2017/08/07/POJ-3259/</id>
     <published>2017-08-07T14:15:19.000Z</published>
     <updated>2017-08-08T09:39:25.234Z</updated>
     
@@ -202,18 +202,18 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
-      <category term="图论" scheme="//ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>POJ 1704 Georgia and Bob (Nim博弈)</title>
-    <link href="//ooobsidian.github.io/2017/08/06/POJ%201704/"/>
-    <id>//ooobsidian.github.io/2017/08/06/POJ 1704/</id>
+    <link href="http://ooobsidian.github.io/2017/08/06/POJ%201704/"/>
+    <id>http://ooobsidian.github.io/2017/08/06/POJ 1704/</id>
     <published>2017-08-06T04:58:18.000Z</published>
     <updated>2017-08-08T07:08:06.371Z</updated>
     
@@ -251,11 +251,11 @@
     </summary>
     
     
-      <category term="ACM" scheme="//ooobsidian.github.io/tags/ACM/"/>
+      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="博弈" scheme="//ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+      <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
     
-      <category term="POJ" scheme="//ooobsidian.github.io/tags/POJ/"/>
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   

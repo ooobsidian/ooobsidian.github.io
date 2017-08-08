@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>LRX&#39;s  blog</title>
-  
+  <title>LRX&#39;s Blog</title>
+  <subtitle>志当存高远</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="//ooobsidian.github.io/"/>

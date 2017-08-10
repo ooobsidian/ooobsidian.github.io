@@ -47,7 +47,7 @@
     <link href="http://ooobsidian.github.io/2017/08/10/POJ-2318-TOYS-%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
     <id>http://ooobsidian.github.io/2017/08/10/POJ-2318-TOYS-计算几何/</id>
     <published>2017-08-10T12:50:25.000Z</published>
-    <updated>2017-08-10T16:26:16.674Z</updated>
+    <updated>2017-08-10T16:43:22.785Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="http://poj.org/problem?id=2318" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Calculate the number of toys that land in each bin of a partitioned toy box.<br>Mom and dad have a problem - their child John never puts his toys away when he is finished playing with them. They gave John a rectangular box to put his toys in, but John is rebellious and obeys his parents by simply throwing his toys into the box. All the toys get mixed up, and it is impossible for John to find his favorite toys.</p>
 <p>John’s parents came up with the following idea. They put cardboard partitions into the box. Even if John keeps throwing his toys into the box, at least toys that get thrown into different bins stay separated. The following diagram shows a top view of an example toy box.</p>
@@ -62,8 +62,7 @@
 <hr>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>判断点在直线的左右利用向量叉乘就可以判断，从线段的一个起点出发到判断点构成的向量和从判断点到另一个端点组成的向量进行叉乘，如果叉乘大于 $0$ ，那么点在直线（线段）右边，否则在直线（线段）左边。</p>
 <hr>
-<h1 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h1><p><img src="http://images2015.cnblogs.com/blog/842992/201707/842992-20170719195248474-1358482814.png" alt=""></p>
-<p>设 $\vec a=(x_1,y_1)$ , $\vec b=(x_2,y_2)$ </p>
+<h1 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h1><p>设 $\vec a=(x_1,y_1)$ , $\vec b=(x_2,y_2)$ </p>
 <p>点乘：内积（数量积），$\vec{a}\cdot\vec{b}=|a||b|cos\theta=x_1\cdot x_2+y_1\cdot y_2$</p>
 <p>叉乘：外积（向量积），$|\vec{c}|=|\vec{a}\times\vec{b}|=|a||b|sin\theta=x_1\cdot y_2-x_2\cdot y_1$</p>
 <p>向量积的结果是一个向量，方向用“右手法则”判断（四指为a的方向，朝手心方向摆动到b的方向，大拇指就是c的方向）</p>
@@ -137,9 +136,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -251,9 +250,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -327,9 +326,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
   </entry>
   
@@ -417,9 +416,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   

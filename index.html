@@ -344,6 +344,161 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2017/08/11/POJ-1269-Intersecting-Lines-计算几何/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="obsidian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LRX's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/11/POJ-1269-Intersecting-Lines-计算几何/" itemprop="url">POJ 1269 Intersecting Lines (计算几何)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T10:50:15+08:00">
+                2017-08-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  705
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/10935/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>We all know that a pair of distinct points on a plane defines a line and that a pair of lines on a plane will intersect in one of three ways: 1) no intersection because they are parallel, 2) intersect in a line because they are on top of one another (i.e. they are the same line), 3) intersect in a point. In this problem you will use your algebraic knowledge to create a program that determines how and where two lines intersect.<br>Your program will repeatedly read in four points that define two lines in the $x-y$ plane and determine how and where the lines intersect. All numbers required by this problem will be reasonable, say between $-1000$ and $1000$ .</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains an integer $N$ between $1$ and $10$ describing how many pairs of lines are represented. The next $N$ lines will each contain eight integers. These integers represent the coordinates of four points on the plane in the order $x_1y_1x_2y_2x_3y_3x_4y_4$ . Thus each of these input lines represents two lines on the plane: the line through $(x_1,y_1)$ and $(x_2,y_2)$ and the line through $(x_3,y_3)$ and $(x_4,y_4)$ . The point $(x_1,y_1)$ is always distinct from $(x_2,y_2)$ . Likewise with $(x_3,y_3)$ and $(x_4,y_4)$ .</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>There should be $N+2$ lines of output. The first line of output should read <figure class="highlight plain"><figcaption><span>LINES OUTPUT``` . There will then be one line of output for each pair of planar lines represented by a line of input, describing how the lines intersect: ```none``` , ```line``` , or ```point``` . If the intersection is a point then your program should output the $x$ and $y$ coordinates of the point, correct to two decimal places. The final line of output should read ```"END OF OUTPUT"``` .</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Sample Input</div></pre></td></tr></table></figure></p>
+<p>5<br>0 0 4 4 0 4 4 0<br>5 0 7 6 1 0 2 3<br>5 0 7 6 3 -6 4 -3<br>2 0 2 27 1 5 18 5<br>0 3 4 0 1 2 2 5<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">## Sample Output</div></pre></td></tr></table></figure></p>
+<p>INTERSECTING LINES OUTPUT<br>POINT 2.00 2.00<br>NONE<br>LINE<br>POINT 2.00 5.00<br>POINT 1.07 2.20<br>END OF OUTPUT<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div></pre></td><td class="code"><pre><div class="line">-------------</div><div class="line"></div><div class="line"># 题意</div><div class="line">给出两条直线（ $4$ 个点），要求判断出这两条直线的关系：平行，同线，相交。如果相交还要求出交点坐标。</div><div class="line"></div><div class="line">-------------</div><div class="line"># 分析</div><div class="line">先判断是否共线，否则判断是否平行，否则只能相交，求出交点。</div><div class="line"></div><div class="line">-------------</div><div class="line"># 代码</div><div class="line">```cpp</div><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;cstdlib&gt;</div><div class="line">#include&lt;functional&gt;</div><div class="line">#include&lt;climits&gt;</div><div class="line">#include&lt;cctype&gt;</div><div class="line">#include&lt;iomanip&gt;</div><div class="line">using namespace std;</div><div class="line">typedef long long ll;</div><div class="line">#define INF 0x3f3f3f3f</div><div class="line">#define mod 1e9+7</div><div class="line">#define clr(a,x) memset(a,x,sizeof(a))</div><div class="line">const double eps = 1e-6;</div><div class="line">struct point</div><div class="line">&#123;</div><div class="line">    int x,y;</div><div class="line">&#125;;</div><div class="line">point a;</div><div class="line">point b;</div><div class="line">point c;</div><div class="line">point d;</div><div class="line">double cross(point a,point b,point c)</div><div class="line">&#123;</div><div class="line">    return (c.y-a.y)*(b.x-a.x)-(b.y-a.y)*(c.x-a.x);</div><div class="line">&#125;</div><div class="line">void solve(point a,point b,point c,point d)</div><div class="line">&#123;</div><div class="line">    if(fabs(cross(a,b,c))&lt;=eps &amp;&amp; fabs(cross(a,b,d))&lt;=eps)</div><div class="line">        printf(&quot;LINE\n&quot;);</div><div class="line">    else if((b.x-a.x)*(d.y-c.y)==(d.x-c.x)*(b.y-a.y))</div><div class="line">        printf(&quot;NONE\n&quot;);</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        double a1=a.y-b.y;</div><div class="line">        double b1=b.x-a.x;</div><div class="line">        double c1=a.x*b.y-b.x*a.y;</div><div class="line">        double a2=c.y-d.y;</div><div class="line">        double b2=d.x-c.x;</div><div class="line">        double c2=c.x*d.y-d.x*c.y;</div><div class="line">        double x=(b1*c2-b2*c1)/(a1*b2-a2*b1);</div><div class="line">        double y=(a2*c1-a1*c2)/(a1*b2-a2*b1);</div><div class="line">        printf(&quot;POINT %.2lf %.2lf\n&quot;,x,y);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    int t;</div><div class="line">    while(cin&gt;&gt;t)</div><div class="line">    &#123;</div><div class="line">        cout&lt;&lt;&quot;INTERSECTING LINES OUTPUT&quot;&lt;&lt;endl;</div><div class="line">        for(int i=0;i&lt;t;i++)</div><div class="line">        &#123;</div><div class="line">            cin&gt;&gt;a.x&gt;&gt;a.y&gt;&gt;b.x&gt;&gt;b.y&gt;&gt;c.x&gt;&gt;c.y&gt;&gt;d.x&gt;&gt;d.y;</div><div class="line">            solve(a,b,c,d);</div><div class="line">        &#125;</div><div class="line">        cout&lt;&lt;&quot;END OF OUTPUT&quot;&lt;&lt;endl;</div><div class="line">    &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2017/08/10/POJ-2398-Toy-Storage-计算几何/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1733,166 +1888,13 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2017/08/06/POJ 1704/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="obsidian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LRX's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/06/POJ 1704/" itemprop="url">POJ 1704 Georgia and Bob (Nim博弈)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T12:58:18+08:00">
-                2017-08-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  979
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="http://poj.org/problem?id=1704" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Georgia and Bob decide to play a self-invented game. They draw a row of grids on paper, number the grids from left to right by $1$ , $2$ , $3$ , …, and place $N$ chessmen on different grids, as shown in the following figure for example:</p>
-<p> <img src="https://odzkskevi.qnssl.com/c76b52797bb489f0387716c46010da41?v=1501669288" alt=""></p>
-<p> Georgia and Bob move the chessmen in turn. Every time a player will choose a chessman, and move it to the left without going over any other chessmen or across the left edge. The player can freely choose number of steps the chessman moves, with the constraint that the chessman must be moved at least ONE step and one grid can at most contains ONE single chessman. The player who cannot make a move loses the game.<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/06/POJ 1704/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -1936,7 +1938,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-count">11</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2048,7 +2050,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共8.7k字</span>
+  <span class="post-count">博客全站共9.4k字</span>
 </div>
         
 

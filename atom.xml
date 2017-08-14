@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-14T13:14:47.756Z</updated>
+  <updated>2017-08-14T13:16:58.823Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://ooobsidian.github.io/2017/08/14/HDU-2159-FATE/"/>
     <id>http://ooobsidian.github.io/2017/08/14/HDU-2159-FATE/</id>
     <published>2017-08-14T13:13:25.000Z</published>
-    <updated>2017-08-14T13:14:47.756Z</updated>
+    <updated>2017-08-14T13:16:58.823Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/20469/origin" target="_blank" rel="external">题目</a></h1><h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。现在的问题是，xhd升掉最后一级还需 $n$ 的经验值，xhd还留有 $m$ 的忍耐度，每杀一个怪xhd会得到相应的经验，并减掉相应的忍耐度。当忍耐度降到 $0$ 或者 $0$ 以下时，xhd就不会玩这游戏。xhd还说了他最多只杀 $s$ 只怪。请问他能升掉这最后一级吗？<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/20469/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。现在的问题是，xhd升掉最后一级还需 $n$ 的经验值，xhd还留有 $m$ 的忍耐度，每杀一个怪xhd会得到相应的经验，并减掉相应的忍耐度。当忍耐度降到 $0$ 或者 $0$ 以下时，xhd就不会玩这游戏。xhd还说了他最多只杀 $s$ 只怪。请问他能升掉这最后一级吗？<br><a id="more"></a></p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>输入数据有多组，对于每组数据第一行输入 $n$ ，$m$ ，$k$ ，$s$ $(0 &lt; n,m,k,s &lt; 100)$ 四个正整数。分别表示还需的经验值，保留的忍耐度，怪的种数和最多的杀怪数。接下来输入 $k$ 行数据。每行数据输入两个正整数 $a，b$ $(0 &lt; a,b &lt; 20)$ ；分别表示杀掉一只这种怪xhd会得到的经验值和会减掉的忍耐度。(每种怪都有无数个)</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>输出升完这级还能保留的最大忍耐度，如果无法升完这级输出 $-1$ 。</p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">10 10 1 10</div><div class="line">1 1</div><div class="line">10 10 1 9</div><div class="line">1 1</div><div class="line">9 10 2 10</div><div class="line">1 1</div><div class="line">2 2</div></pre></td></tr></table></figure>
@@ -37,18 +37,18 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/20469/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题目&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;Problem-Description&quot;&gt;&lt;a href=&quot;#Problem-Description&quot; class=&quot;headerlink&quot; title=&quot;Problem Description&quot;&gt;&lt;/a&gt;Problem Description&lt;/h2&gt;&lt;p&gt;最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。现在的问题是，xhd升掉最后一级还需 $n$ 的经验值，xhd还留有 $m$ 的忍耐度，每杀一个怪xhd会得到相应的经验，并减掉相应的忍耐度。当忍耐度降到 $0$ 或者 $0$ 以下时，xhd就不会玩这游戏。xhd还说了他最多只杀 $s$ 只怪。请问他能升掉这最后一级吗？&lt;br&gt;
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/20469/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题目&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;最近xhd正在玩一款叫做FATE的游戏，为了得到极品装备，xhd在不停的杀怪做任务。久而久之xhd开始对杀怪产生的厌恶感，但又不得不通过杀怪来升完这最后一级。现在的问题是，xhd升掉最后一级还需 $n$ 的经验值，xhd还留有 $m$ 的忍耐度，每杀一个怪xhd会得到相应的经验，并减掉相应的忍耐度。当忍耐度降到 $0$ 或者 $0$ 以下时，xhd就不会玩这游戏。xhd还说了他最多只杀 $s$ 只怪。请问他能升掉这最后一级吗？&lt;br&gt;
     
     </summary>
     
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
       <category term="动态规划" scheme="http://ooobsidian.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="背包" scheme="http://ooobsidian.github.io/tags/%E8%83%8C%E5%8C%85/"/>
-    
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -81,9 +81,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -108,9 +108,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -156,9 +156,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
     
   </entry>
   
@@ -245,9 +245,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -488,9 +488,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   

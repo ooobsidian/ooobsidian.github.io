@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-15T06:47:45.463Z</updated>
+  <updated>2017-08-15T06:53:30.298Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ooobsidian.github.io/2017/08/15/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F%E8%AE%B2%E8%A7%A3/"/>
     <id>http://ooobsidian.github.io/2017/08/15/拓扑排序讲解/</id>
     <published>2017-08-15T06:42:35.000Z</published>
-    <updated>2017-08-15T06:47:45.463Z</updated>
+    <updated>2017-08-15T06:53:30.298Z</updated>
     
     <content type="html"><![CDATA[<h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><p>所谓图的拓扑排序，就是让图中全部有向边都从左指向右，同时将所有顶点排列在一条水平线上。简单来说，就是有几门要学习的课程：$A,B,C,D,E,F$ ，要学某一门课时必须有先掌握的知识，例如，要学课程 $A$ ，必须得有 $C$ 这门课的基础，学 $C$ 必须有 $E$ 的基础，学 $B$ 也必须有 $E$ 的基础，等等条件。最后让你排列出一个合理的顺序来学习这几门课程。有多种方案的话就随意输出一组。<br><a id="more"></a><br>我们做的就是要找到入度为 $0$ 的点，也就是找到不需要有任何基础的课程，先学习这门课，再去学习以这门课为基础的其他课程。</p>
 <hr>
@@ -30,7 +30,6 @@
 <p>$s_0$  $t_0$</p>
 <p>$s_1$  $t_1$</p>
 <p>$…$</p>
-<p>$s<em>{|E|-1}$  $t</em>{|E|-1}$</p>
 <p>其中 $|V|$ 、 $|E|$ 分别表示图G的顶点数和边数。</p>
 <p>$s_i$ 、$t_i$ 表示图 $G$ 第 $i$ 条有向边连接的两个顶点的编号。</p>
 <p><em>输出</em><br>按拓扑排序后的顺序输出图 $G$ 的顶点编号，每个顶点编号占一行。</p>

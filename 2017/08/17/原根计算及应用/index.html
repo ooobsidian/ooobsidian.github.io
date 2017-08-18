@@ -115,7 +115,7 @@
 <meta property="og:site_name" content="LRX&#39;s Blog">
 <meta property="og:description" content="引言：今天上课老师讲了这个，但是信息量有点大，没有很好的理解，先把它放在博客上，以后再学习。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-18T15:08:48.864Z">
+<meta property="og:updated_time" content="2017-08-18T15:14:19.403Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="原根计算及应用">
 <meta name="twitter:description" content="引言：今天上课老师讲了这个，但是信息量有点大，没有很好的理解，先把它放在博客上，以后再学习。">
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  3,433
+                  3,437
                 </span>
               
 
@@ -421,7 +421,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  16
+                  17
                 </span>
               
             </div>
@@ -554,7 +554,8 @@
 <p>$w$ 共有 $gcd(i,p-1)$ 个（包括 $w$ 取 $0$ 的情况，应排除）。<br>注意 $x=g^u$ ，$y=g^v$ ，$1≤x≤p−1$ 、$1≤y≤m≤p−1$ ，$y$ 可有 $m$ 个，每个 $y$ 对应的 $v$ 是唯一的，因此 $v$ 也有 $m$ 个。</p>
 <p>从 $1+g^{v-u}=g^w$ 可得 $g^{v-u}=g^w-1$ ，因此，对每个 $w$ ，$v-u$ 的值是唯一的；现在 $v$ 有 $m$ 个，每个 $v$ 对应的 $u$ 只有一个。</p>
 <p>结论:对每个 $w$ ，数对 $(u,v)$ 共有 $m$ 个，因此数对 $(g^u，g^v)$ 共有 $m$ 对，从而数对 $(x，y)$ 共用 $m$ 对。实际的 $w$ 共有 $gcd(i,p-1)-1$ 个，因此对于确定的 $i$ ，$1≤i≤p−1$ ，$f(i)=[gcd(i,p-1)-1] \times m$</p>
-<p>最后就是求<br>$$\sum^{p-1}<em>{i=1} if(i)(mod \; 10^9+7)=\sum^{p-1}</em>{i=1} i \times m \times <a href="mod \; 10^9+7">gcd(i,p-1)-1</a>$$</p>
+<p>最后就是求<br>$$\sum^{p-1}_{i=1} if(i)(mod \; 10^9+7)$$</p>
+<p>$$=\sum^{p-1}_{i=1} i \times m \times <a href="mod \; 10^9+7">gcd(i,p-1)-1</a>$$</p>
 <p>$$\sum^{p-1}<em>{i=1} if(i)=\sum^{p-1}</em>{i=1} i \times m \times [gcd(i,p-1)-1]$$</p>
 <p>$$=m\sum^{p-1}_{i=1} i \times gcd(i,p-1) - \frac{p(p-1)m}{2}$$</p>
 <p>将 $1≤i≤p−1$ 中的所有 $i$ 进行分类，即 $gcd(i,p-1)$ 相同的放在一起。</p>
@@ -562,8 +563,12 @@
 <p>配对</p>
 <p>$i:1,2,3,…,p-2,p-1$</p>
 <p>$p-1-i:p-1-1,p-1-2,…,1,0$</p>
-<p>$$\sum^{p-1}<em>{i=1}i \times gcd(i,p-1)=\sum</em>{d|p-1}d\sum<em>{i=1,d|i}^{p-1}i \times [gcd(i,p-1)=d]$$<br>$$=\sum</em>{d|p-1}d\sum_{i=1,d|i}^{p-1}i \times [gcd(\frac{i}{d},\frac{p-1}{d})=1]$$</p>
-<p>对 $d|i$ ，记 $i=d<em>j$ ，则 $j=1，2，…，\frac{p-1}{d}$，代入上述等式最后一个公式，并重新将 $j$ 换回到 $i$ ，则有<br>$$\sum</em>{d|p-1}d\sum^{p-1}<em>{i=1}i \times [gcd(\frac{i}{d},\frac{p-1}{d})=1]=\sum</em>{d|p-1}d^2\sum^{\frac{p-1}{d}}<em>{i=1}i \times [gcd(i,\frac{p-1}{d})=1]$$<br>$$=\sum</em>{d|p-1}d^2\frac{\frac{p-1}{d} \varphi (\frac{p-1}{d})+[\frac{p-1}{d}=1]}{2}$$</p>
+<p>$$\sum^{p-1}_{i=1}i \times gcd(i,p-1)$$</p>
+<p>$$=\sum<em>{d|p-1}d\sum</em>{i=1,d|i}^{p-1}i \times [gcd(i,p-1)=d]$$</p>
+<p>$$=\sum<em>{d|p-1}d\sum</em>{i=1,d|i}^{p-1}i \times [gcd(\frac{i}{d},\frac{p-1}{d})=1]$$</p>
+<p>对 $d|i$ ，记 $i=d<em>j$ ，则 $j=1，2，…，\frac{p-1}{d}$，代入上述等式最后一个公式，并重新将 $j$ 换回到 $i$ ，则有<br>$$\sum</em>{d|p-1}d\sum^{p-1}_{i=1}i \times [gcd(\frac{i}{d},\frac{p-1}{d})=1]$$</p>
+<p>$$=\sum<em>{d|p-1}d^2\sum^{\frac{p-1}{d}}</em>{i=1}i \times [gcd(i,\frac{p-1}{d})=1]$$</p>
+<p>$$=\sum_{d|p-1}d^2\frac{\frac{p-1}{d} \varphi (\frac{p-1}{d})+[\frac{p-1}{d}=1]}{2}$$</p>
 
       
     </div>

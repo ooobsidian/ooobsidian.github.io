@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-20T13:07:46.899Z</updated>
+  <updated>2017-08-18T12:32:24.824Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -14,60 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>原根的应用</title>
-    <link href="http://ooobsidian.github.io/2017/08/20/%E5%8E%9F%E6%A0%B9%E7%9A%84%E5%BA%94%E7%94%A8/"/>
-    <id>http://ooobsidian.github.io/2017/08/20/原根的应用/</id>
-    <published>2017-08-20T11:41:41.000Z</published>
-    <updated>2017-08-20T13:07:46.899Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=6051" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>We will give you a non-negative integer $m$ and a prime number $p$ .  And we define $f(i)$ is the number of pair( $x,y$ ) that satisfies $(x+y)^i≡x^i \% p$ and $1≤x≤p−1,1≤y≤m$ . Now, you have to calculate the sum. Maybe the sum is too big, so you only need to output the sum $\sum^{p-1}_{i=0} if(i)$ after mod $1e9+7$ .</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line contains only one integer $T$ , which indicates the number of test cases.<br>For each test case, there are a integer $m(1≤m≤p−1)$ and a prime number $p(2≤p≤1e9+7)$ on one line.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case, output one line <code>&quot;Case #x: y&quot;</code> , where x is the case number (starting from $1$ ) and $y$ is the sum after mod $1e9+7$ .</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">3</div><div class="line">5 7</div><div class="line">3 11</div><div class="line">2 103</div></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Case #1: 210</div><div class="line">Case #2: 390</div><div class="line">Case #3: 50388</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给定正整数 $m&gt;0$ 和素数 $p$ 。记 $f(i)$ 为满足条件 $(x+y)^i≡x^i \% p$ 及 $1≤x≤p−1、1≤y≤m≤p−1$ 的数对 $(x,y)$ 的组数。你的任务是计算和<br>$\sum^{p-1}_{i=0} if(i)(mod \; 10^9+7)$ 。</p>
-<hr>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>本题要求满足 $(x+y)^i≡x^i \%p$ ，$1≤x≤p−1$、$1≤y≤m≤p−1$ 的数对 $(x,y)$ 个数。直接去求 $x，y$ 不现实，但可以计算个数。对于素数 $p$ ，有原根 $g$ ，$g$ 也是生成元，即 $1$ 到 $p-1$ 的任何整数 $k$ 都可以用 $g$ 的幂 $g^t$ 表示，$0 \leq t&lt;p-1$ 。现在，对于满足 $1≤x≤p−1$ 的 $x$ ，由于 $x$ 与 $p$ 互质，因此 $x$ 可写成 $x=g^u$ ；类似地，$y$可写成 $y=g^v$ ，$0≤u$ ，$v≤p-2$。</p>
-<p>将 $x=g^u，y=g^v$ 代入 $(x+y)^i \equiv x^i(mod \; p)$ ,可得 $(g^u+g^v)^i \equiv g^{ui} (mod \; p)$. 变形为<br>$$[g^u(1+g^{v-u})]^i \equiv g^{ui} (mod \; p)$$<br>$$g^{ui}(1+g^{v-u})^i \equiv g^{ui}(mod \; p)$$<br>$$(1+g^{v-u})^i \equiv 1(mod \; p)$$</p>
-<p>$w$ 共有 $gcd(i,p-1)$ 个（包括 $w$ 取 $0$ 的情况，应排除）。<br>注意 $x=g^u$ ，$y=g^v$ ，$1≤x≤p−1$ 、$1≤y≤m≤p−1$ ，$y$ 可有 $m$ 个，每个 $y$ 对应的 $v$ 是唯一的，因此 $v$ 也有 $m$ 个。</p>
-<p>从 $1+g^{v-u}=g^w$ 可得 $g^{v-u}=g^w-1$ ，因此，对每个 $w$ ，$v-u$ 的值是唯一的；现在 $v$ 有 $m$ 个，每个 $v$ 对应的 $u$ 只有一个。</p>
-<p>结论:对每个 $w$ ，数对 $(u,v)$ 共有 $m$ 个，因此数对 $(g^u，g^v)$ 共有 $m$ 对，从而数对 $(x，y)$ 共用 $m$ 对。实际的 $w$ 共有 $gcd(i,p-1)-1$ 个，因此对于确定的 $i$ ，$1≤i≤p−1$ ，$f(i)=[gcd(i,p-1)-1] \times m$</p>
-<p>最后就是求<br>$$\sum^{p-1}_{i=1} if(i)(mod \; 10^9+7)$$</p>
-<p><center>$$=\sum^{p-1}_{i=1} i \times m \times [gcd(i,p-1)-1] (mod \; 10^9+7)$$</center></p>
-<p>$$\sum^{p-1}_{i=1} if(i)$$</p>
-<p>$$= \sum^{p-1}_{i=1} i \times m \times [gcd(i,p-1)-1]$$</p>
-<p>$$=m\sum^{p-1}_{i=1} i \times gcd(i,p-1) - \frac{p(p-1)m}{2}$$</p>
-<p>将 $1≤i≤p−1$ 中的所有 $i$ 进行分类，即 $gcd(i,p-1)$ 相同的放在一起。</p>
-<p>设 $d=gcd(i,p-1)$ ，由于 $d=gcd(p-1-i,p-1)$ ， $0≤p-1-i≤p−2$</p>
-<p>配对</p>
-<p>$i:1,2,3,…,p-2,p-1$</p>
-<p>$p-1-i:p-1-1,p-1-2,…,1,0$</p>
-<p>$$\sum^{p-1}_{i=1}i \times gcd(i,p-1)$$</p>
-<p>$$=\sum_{d|p-1} d \sum^{p-1}_{i=1,d|i} i \times [gcd(i,p-1)=d]$$</p>
-<p>$$=\sum_{d|p-1} d \sum^{p-1}_{i=1,d|i} i \times [gcd(\frac{i}{d},\frac{p-1}{d})=1]$$</p>
-<p>对 $d|i$ ,记 $i=d_j$ ,则 $j=1,2,…, \frac{p-1}{d}$ ,代入上述等式最后一个公式,并重新将 $j$ 换回到 $i$ ,则有</p>
-<p>$$\sum{ }_{d|p-1} d \sum^{p-1}_{i=1} i \times [gcd( \frac{i}{d} , \frac{p-1}{d}) = 1]$$</p>
-<p>$$=\sum_{d|p-1} d^2 \sum^{ \frac{p-1}{d}}_{i=1} i \times [gcd(i , \frac{p-1}{d}) = 1]$$</p>
-<p>$$=\sum_{d|p-1}d^2\frac{\frac{p-1}{d} \varphi (\frac{p-1}{d})+[\frac{p-1}{d}=1]}{2}$$</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;http://acm.hdu.edu.cn/showproblem.php?pid=6051&quot; target=&quot;_blank&quot; rel=&quot;ex
-    
-    </summary>
-    
-    
-      <category term="数论" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
-    
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="原根" scheme="http://ooobsidian.github.io/tags/%E5%8E%9F%E6%A0%B9/"/>
-    
-  </entry>
   
   <entry>
     <title>HDU 2817 A sequence of numbers(快速幂)</title>
@@ -114,7 +60,7 @@
     <link href="http://ooobsidian.github.io/2017/08/17/%E5%8E%9F%E6%A0%B9%E8%AE%A1%E7%AE%97%E5%8F%8A%E5%BA%94%E7%94%A8/"/>
     <id>http://ooobsidian.github.io/2017/08/17/原根计算及应用/</id>
     <published>2017-08-16T16:47:21.000Z</published>
-    <updated>2017-08-20T13:51:46.331Z</updated>
+    <updated>2017-08-20T13:57:45.953Z</updated>
     
     <content type="html"><![CDATA[<p>引言：今天上课老师讲了这个，但是信息量有点大，没有很好的理解，先把它放在博客上，以后再学习。<br><a id="more"></a></p>
 <h2 id="同余基本知识"><a href="#同余基本知识" class="headerlink" title="同余基本知识"></a>同余基本知识</h2><ul>

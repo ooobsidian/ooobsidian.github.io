@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-26T15:51:53.425Z</updated>
+  <updated>2017-08-26T15:53:48.065Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="http://ooobsidian.github.io/2017/08/26/BZOJ-2818-Gcd-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
     <id>http://ooobsidian.github.io/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/</id>
     <published>2017-08-26T09:49:03.000Z</published>
-    <updated>2017-08-26T15:51:53.425Z</updated>
+    <updated>2017-08-26T15:53:48.065Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/37161/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定整数 $N$ ，求 $1 \leq x,y \leq N$ 且 $Gcd(x,y)$ 为素数的数对 $(x,y)$ 有多少对.</p>
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/37161/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定整数 $N$ ，求 $1 \leq x,y \leq N$ 且 $Gcd(x,y)$ 为素数的数对 $(x,y)$ 有多少对.<br><a id="more"></a></p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>一个整数 $N$</p>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>如题</p>
 <h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">4</div></pre></td></tr></table></figure>
@@ -47,7 +47,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/37161/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/37161/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题目&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;给定整数 $N$ ，求 $1 \leq x,y \leq N$ 且 $Gcd(x,y)$ 为素数的数对 $(x,y)$ 有多少对.&lt;br&gt;
     
     </summary>
     
@@ -288,11 +288,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -353,9 +353,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
@@ -591,9 +591,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
-    
       <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
+      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
     
   </entry>
   
@@ -632,9 +632,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
@@ -707,9 +707,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
@@ -785,9 +785,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
@@ -834,9 +834,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   

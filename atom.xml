@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-27T07:00:48.436Z</updated>
+  <updated>2017-08-29T16:30:33.456Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -16,11 +16,98 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用python求 $\pi$ 的近似值</title>
+    <link href="http://ooobsidian.github.io/2017/08/29/%E5%88%A9%E7%94%A8python%E6%B1%82Pi%E7%9A%84%E8%BF%91%E4%BC%BC%E5%80%BC/"/>
+    <id>http://ooobsidian.github.io/2017/08/29/利用python求Pi的近似值/</id>
+    <published>2017-08-29T15:10:19.000Z</published>
+    <updated>2017-08-29T16:30:33.456Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是第一篇关于python的博客，看大家都在学习新的语言，忍不住学一发python，东西太过简单大佬就不要嘲笑我了。</p>
+<p>$\pi$ 的计算是没有一个准确的公式可以将它计算出来的，为了求出它，我们只能利用模拟的方法近似求出 $\pi$ 的值。<br><a id="more"></a><br>利用python计算 $\pi$ 的近似值的方法采用的是蒙特卡洛方法，这种方法利用的是随机抽样或统计的实验方法。    </p>
+<p>它其实就是一种模拟的思想。。。</p>
+<p>首先构造一个单位正方形和 $\frac14$ 圆。</p>
+<p><img src="http://hi.csdn.net/attachment/201111/16/0_1321430461Wn4o.gif" alt=""></p>
+<p>然后随机的向单位正方形抛洒大量的点，对于每个点，可能在圆内或者圆外，当抛洒点的数量大到一定程度时，抛洒点就近似构成了单位正方形的面积，用圆内点的个数除以总的抛洒点的个数，就得到了 $\frac{\pi}{4}$ ，这时候再对这个商乘以四，就可以近似的得到 $\pi$ 的近似值，而且抛洒点的数量越多，得到的 $\pi$ 值越精确。</p>
+<p>这里要用到python的数学库，随机库，时间库里的部分函数，引用数学库是为了开平方计算抛洒点是否在圆内，随机库是为了产生大量的随机点，时间库是为了能体现出程序运行的时间。</p>
+<p>随机库里的常用函数有</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">seed(x)</td>
+<td style="text-align:center">给随机数一个种子值，默认是随机种子系统时钟</td>
+</tr>
+<tr>
+<td style="text-align:center">random()</td>
+<td style="text-align:center">生成一个[0,1.0)之间的随机小数</td>
+</tr>
+<tr>
+<td style="text-align:center">uniform()</td>
+<td style="text-align:center">生成一个a到b之间的随机小数</td>
+</tr>
+<tr>
+<td style="text-align:center">randint(a,b)</td>
+<td style="text-align:center">生成一个a到b之间的随机整数</td>
+</tr>
+<tr>
+<td style="text-align:center">randrange(a,b,c)</td>
+<td style="text-align:center">随机生成一个从a开始到b以c递增的数</td>
+</tr>
+<tr>
+<td style="text-align:center">choice(&lt; list &gt;)</td>
+<td style="text-align:center">从列表随机返回一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">shuffle(&lt; list &gt;)</td>
+<td style="text-align:center">将列表的元素随机打乱</td>
+</tr>
+<tr>
+<td style="text-align:center">sample(&lt; list &gt;,k)</td>
+<td style="text-align:center">从指定列表获取k个元素</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>随机数库及其使用<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> random <span class="keyword">import</span> *</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>random()</div><div class="line"><span class="number">0.712851564815235</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>uniform(<span class="number">1</span>,<span class="number">10</span>)</div><div class="line"><span class="number">5.48412389456316455</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>randint(<span class="number">1</span>,<span class="number">10</span>)</div><div class="line"><span class="number">9</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>randrange(<span class="number">0</span>,<span class="number">10</span>,<span class="number">2</span>)</div><div class="line"><span class="number">6</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ra=[<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>choice(ra)</div><div class="line"><span class="number">5</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>shuffle(ra)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ra</div><div class="line">[<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">9</span>,<span class="number">1</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">8</span>,<span class="number">0</span>,<span class="number">7</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>sample(ra,<span class="number">4</span>)</div><div class="line">[<span class="number">6</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">7</span>]</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>计算机实际上是不能真正产生随机数的，所以随机库的原理是每一个随机数都是由一个种子开始的伪随机序列。相同的随机种子产生相同的伪随机序列，这也有利于程序的验证执行。</p>
+<p>好了扯了这么多题外话，该回到正题上了，这里计算 $\pi$ 的近似值需要产生的就是0到1之间的随机数，用到的随机库函数只有random()了。</p>
+<p>还有数学库，调用的是sqrt(x)函数，这个是开方函数就不用多说了。</p>
+<p>$\pi$ 值计算的IPO表示如下：</p>
+<ul>
+<li>输入：抛洒点的数量。</li>
+<li>处理：对于每个抛洒点，计算点到圆心的距离，通过判断该点是否在圆内，进而统计在圆内点的数量。</li>
+<li>输出： $\pi$ 值。</li>
+</ul>
+<p>实例代码(这里产生了10000个点)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> random</div><div class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</div><div class="line"><span class="keyword">from</span> time <span class="keyword">import</span> clock</div><div class="line">DARTS = <span class="number">10000</span></div><div class="line">hits = <span class="number">0</span></div><div class="line">clock()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,DARTS):</div><div class="line">    x, y = random(), random()</div><div class="line">    dist = sqrt(x**<span class="number">2</span> + y**<span class="number">2</span>)</div><div class="line">    <span class="comment">#print("dist:%s" % dist)</span></div><div class="line">    <span class="keyword">if</span> dist &lt;= <span class="number">1.0</span>:</div><div class="line">        hits = hits + <span class="number">1</span></div><div class="line">pi = <span class="number">4</span>*(<span class="number">1.0</span>*hits/DARTS)  <span class="comment">#如果是python2,就要加1.0*,python3就可以不用</span></div><div class="line"><span class="comment">#print(pi)</span></div><div class="line"><span class="comment">#print("hits: %s" % hits)</span></div><div class="line"><span class="comment">#print("DARTS: %s" % DARTS)</span></div><div class="line">print(<span class="string">"Pi: %.5f"</span> % pi)</div><div class="line">print(<span class="string">"time: %-5.5ss"</span> % clock())</div></pre></td></tr></table></figure></p>
+<p>可以试验，当产生点的数量越多时，$\pi$ 的值也越精确，同时计算时间会增加许多。<br><img src="https://pic3.zhimg.com/3c4fbe09f7f5282162bcacb3e5947d9e_b.png" alt=""></p>
+<p>第一篇python文章，求大佬勿喷。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是第一篇关于python的博客，看大家都在学习新的语言，忍不住学一发python，东西太过简单大佬就不要嘲笑我了。&lt;/p&gt;
+&lt;p&gt;$\pi$ 的计算是没有一个准确的公式可以将它计算出来的，为了求出它，我们只能利用模拟的方法近似求出 $\pi$ 的值。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://ooobsidian.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
     <title>BZOJ 2818 Gcd(莫比乌斯反演)</title>
     <link href="http://ooobsidian.github.io/2017/08/26/BZOJ-2818-Gcd-%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%8F%8D%E6%BC%94/"/>
     <id>http://ooobsidian.github.io/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/</id>
     <published>2017-08-26T09:49:03.000Z</published>
-    <updated>2017-08-27T07:00:48.436Z</updated>
+    <updated>2017-08-27T07:01:53.661Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/37161/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定整数 $N$ ，求 $1 \leq x,y \leq N$ 且 $Gcd(x,y)$ 为素数的数对 $(x,y)$ 有多少对.<br><a id="more"></a></p>
 <h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>一个整数 $N$</p>
@@ -288,11 +375,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -591,9 +678,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
-    
       <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
+      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
     
   </entry>
   

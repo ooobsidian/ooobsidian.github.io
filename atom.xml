@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-29T16:30:33.456Z</updated>
+  <updated>2017-08-31T08:45:32.297Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -16,11 +16,226 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>利用python绘制树形图</title>
+    <link href="http://ooobsidian.github.io/2017/08/31/%E5%88%A9%E7%94%A8python%E7%BB%98%E5%88%B6%E6%A0%91%E5%BD%A2%E5%9B%BE/"/>
+    <id>http://ooobsidian.github.io/2017/08/31/利用python绘制树形图/</id>
+    <published>2017-08-31T07:25:45.000Z</published>
+    <updated>2017-08-31T08:45:32.297Z</updated>
+    
+    <content type="html"><![CDATA[<p>用python绘制小树，最后图案就长这个样子</p>
+<p><img src="http://wx3.sinaimg.cn/small/006rvSvvly1fj2y132vfpj30qq0nlglp.jpg" alt=""><br><a id="more"></a><br>首先看见这张图发现没有什么思路，其实仔细想想，它其实是在每一个分支上又加了一个分支，如此下去，就得到了这张图。因此主要思路就是利用递归的方法。</p>
+<p>在画图之前，我们的知道简单图形的绘制指令，例如，如何绘制线段，如何改变线段的方向，改变线段粗细，颜色等等指令。之后我们就要对树的绘制设计相应的算法。</p>
+<p>这里，我们利用python中的turtle函数库，它是一种简单图形绘制模块，而且，它的函数指令是很形象和简单的，它绘制的坐标轴以屏幕中心为原点。接下来我们就介绍一下turtle库里的常用函数。</p>
+<ul>
+<li><p>画笔的属性<br>1.turtle.pensize()：设置画笔的宽度；<br>2.turtle.pencolor()：没有参数传入，返回当前画笔颜色，传入参数设置画笔颜色，可以是字符串如”green”, “red”,也可以是RGB 3元组。<br>3.turtle.speed(speed)：设置画笔移动速度，画笔绘制的速度范围[0,10]整数，数字越大越快。</p>
+</li>
+<li><p>绘图命令<br><center>   画笔运动命令</center></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">turtle.forward(distance)</td>
+<td style="text-align:center">向当前画笔方向移动distance像素长度</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.backward(distance)</td>
+<td style="text-align:center">向当前画笔相反方向移动distance像素长度</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.right(degree)</td>
+<td style="text-align:center">顺时针移动degree°</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.left(degree)</td>
+<td style="text-align:center">逆时针移动degree°</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.pendown()</td>
+<td style="text-align:center">移动时绘制图形，缺省时也为绘制</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.goto(x,y)</td>
+<td style="text-align:center">将画笔移动到坐标为x,y的位置</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.penup()</td>
+<td style="text-align:center">提起笔移动，不绘制图形，用于另起一个地方绘制</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.circle()</td>
+<td style="text-align:center">画圆，半径为正(负)，表示圆心在画笔的左边(右边)画圆</td>
+</tr>
+<tr>
+<td style="text-align:center">setx()</td>
+<td style="text-align:center">将当前x轴移动到指定位置</td>
+</tr>
+<tr>
+<td style="text-align:center">sety()</td>
+<td style="text-align:center">将当前y轴移动到指定位置</td>
+</tr>
+<tr>
+<td style="text-align:center">setheading(angle)</td>
+<td style="text-align:center">设置当前朝向为angle角度</td>
+</tr>
+<tr>
+<td style="text-align:center">home()</td>
+<td style="text-align:center">设置当前画笔位置为原点，朝向东。</td>
+</tr>
+<tr>
+<td style="text-align:center">dot(r)</td>
+<td style="text-align:center">绘制一个指定直径和颜色的圆点</td>
+</tr>
+</tbody>
+</table>
+<p><center> 画笔控制命令</center></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">turtle.fillcolor(colorstring)</td>
+<td style="text-align:center">绘制图形的填充颜色</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.(color1,color2)</td>
+<td style="text-align:center">同时设置pencolor=color1, fillcolor=color2</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.filling()</td>
+<td style="text-align:center">返回当前是否在填充状态</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.begin_fill()</td>
+<td style="text-align:center">准备开始填充图形</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.end_fill()</td>
+<td style="text-align:center">填充完成</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.hideturtle()</td>
+<td style="text-align:center">隐藏画笔的turtle形状</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.showturtle()</td>
+<td style="text-align:center">显示画笔的turtle形状</td>
+</tr>
+</tbody>
+</table>
+<p><center> 全局控制命令</center></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">turtle.clear()</td>
+<td style="text-align:center">清空turtle窗口，但是turtle的位置和状态不会改变</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.reset()</td>
+<td style="text-align:center">清空窗口，重置turtle状态为起始状态</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.undo()</td>
+<td style="text-align:center">撤销上一个turtle动作</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.isvisible()</td>
+<td style="text-align:center">返回当前turtle是否可见</td>
+</tr>
+<tr>
+<td style="text-align:center">stamp()</td>
+<td style="text-align:center">复制当前图形</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.write(s,[,font=(“font-name”,font_size,”font_type”)])</td>
+<td style="text-align:center">写文本，s为文本内容，font是字体的参数，分别为字体名称，大小和类型；font为可选项，font参数也是可选项</td>
+</tr>
+</tbody>
+</table>
+<p><center> 其他命令</center></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">turtle.mainloop()或turtle.done()</td>
+<td style="text-align:center">启动事件循环-调用Tkinter的mainloop函数.必须是乌龟图形程序中的最后一个语句</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.mode(mode=None)</td>
+<td style="text-align:center">设置乌龟模式（“standard”，“logo”或“world”）并执行重置。如果没有给出模式，则返回当前模式</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.delay(delay=None)</td>
+<td style="text-align:center">设置或返回以毫秒为单位的绘图延迟</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.begin_poly()</td>
+<td style="text-align:center">开始记录多边形的顶点。当前的乌龟位置是多边形的第一个顶点</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.end_poly()</td>
+<td style="text-align:center">停止记录多边形的顶点。当前的乌龟位置是多边形的最后一个顶点。将与第一个顶点相连</td>
+</tr>
+<tr>
+<td style="text-align:center">turtle.get_poly()</td>
+<td style="text-align:center">返回最后记录的多边形</td>
+</tr>
+</tbody>
+</table>
+<p>介绍了这么多的函数，一时间可能不能全部理解和记忆，接下来先利用上面介绍的函数做一些简单的事情。</p>
+<p><strong>画一个五角星</strong></p>
+<p><img src="http://wx4.sinaimg.cn/small/006rvSvvly1fj2z7wognlj30qs0nk3yj.jpg" alt=""><br>它的做法其实不难，利用上面的函数就可以轻松完成了，但是要知道，五角星的每两条线段之间的折返角度是144°就ok了。</p>
+<p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> Turtle</div><div class="line">p = Turtle()</div><div class="line">p.speed(<span class="number">2</span>)</div><div class="line">p.pensize(<span class="number">5</span>)</div><div class="line">p.color(<span class="string">"black"</span>,<span class="string">"yellow"</span>)</div><div class="line">p.begin_fill()</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">5</span>):</div><div class="line">    p.forward(<span class="number">400</span>)</div><div class="line">    p.right(<span class="number">144</span>)</div><div class="line">p.end_fill()</div></pre></td></tr></table></figure></p>
+<p>接下来回到我们的主题上去，我们的目的是为了绘制一个小树，观察图形，我们发现它是一个对称的图形，每一个枝杈上会以相同的角度生成更小的枝杈，之前说过，就是利用递归思想来绘图。首先给出代码。。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> Turtle</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tree</span><span class="params">(plist,l,a,f)</span>:</span></div><div class="line">    <span class="keyword">if</span> l&gt;<span class="number">5</span>:</div><div class="line">        lst=[]</div><div class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> plist:</div><div class="line">            p.forward(l)</div><div class="line">            q = p.clone()</div><div class="line">            p.left(a)</div><div class="line">            q.right(a)</div><div class="line">            lst.append(p)</div><div class="line">            lst.append(q)</div><div class="line">        tree(lst,l*f,a,f)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">maketree</span><span class="params">(x,y)</span>:</span></div><div class="line">    p=Turtle()</div><div class="line">    p.color(<span class="string">"green"</span>)</div><div class="line">    p.pensize(<span class="number">5</span>)</div><div class="line">    p.hideturtle()</div><div class="line">    p.speed(<span class="number">10</span>)</div><div class="line">    p.left(<span class="number">90</span>)</div><div class="line">    p.penup()</div><div class="line">    p.goto(x,y)</div><div class="line">    p.pendown()</div><div class="line">    t=tree([p],<span class="number">200</span>,<span class="number">65</span>,<span class="number">0.6375</span>)</div><div class="line">    print(len(p.getscreen().turtles()))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    maketree(<span class="number">-200</span>,<span class="number">-200</span>)</div><div class="line">    maketree(<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">    maketree(<span class="number">200</span>,<span class="number">-200</span>)</div><div class="line"></div><div class="line">main()</div></pre></td></tr></table></figure></p>
+<p>其中tree()函数中，plist是一个存放函数对象的列表，l是树枝的长度，a是画笔调整角度，f是下一层枝杈长度与上层枝杈长度的比例，clone()是为了将左边的图形克隆到右边，将原对象向左旋转角度a，将克隆对象向右旋转角度a，然后将两个对象放在slt列表的最后，用于进行下一次枝杈绘制的递归调用。这种思想也是一种广度优先绘制法。然后在递归调用时，下一层枝杈长度为l*f，下一层枝杈的长度以f的比例缩短。</p>
+<p>这里在主函数中绘制了三棵小树，起始坐标分别是(-200,-200),(0,0),(200,-200)。</p>
+<p>turtle库hi一个很有意思的函数库，之前还绘制了蟒蛇图案</p>
+<p><img src="http://wx2.sinaimg.cn/small/006rvSvvly1fj300im92cj31080n5gll.jpg" alt=""></p>
+<p>其代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> turtle</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawSnake</span><span class="params">(rad,angle,len,neckrad)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len):</div><div class="line">        turtle.circle(rad,angle)</div><div class="line">        turtle.circle(-rad,angle)</div><div class="line">    turtle.circle(rad,angle/<span class="number">2</span>)</div><div class="line">    turtle.fd(rad)</div><div class="line">    turtle.circle(neckrad+<span class="number">2</span>,<span class="number">180</span>)</div><div class="line">    turtle.fd(rad*<span class="number">2</span>/<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    turtle.setup(<span class="number">1300</span>,<span class="number">800</span>,<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">    pythonsize = <span class="number">30</span></div><div class="line">    turtle.pensize(pythonsize)</div><div class="line">    turtle.pencolor(<span class="string">"blue"</span>)</div><div class="line">    turtle.seth(<span class="number">-40</span>)</div><div class="line">    drawSnake(<span class="number">40</span>,<span class="number">80</span>,<span class="number">5</span>,pythonsize/<span class="number">2</span>)</div><div class="line"></div><div class="line">main()</div></pre></td></tr></table></figure></p>
+<p>加油，python不难！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;用python绘制小树，最后图案就长这个样子&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://wx3.sinaimg.cn/small/006rvSvvly1fj2y132vfpj30qq0nlglp.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="python" scheme="http://ooobsidian.github.io/tags/python/"/>
+    
+      <category term="递归" scheme="http://ooobsidian.github.io/tags/%E9%80%92%E5%BD%92/"/>
+    
+  </entry>
+  
+  <entry>
     <title>利用python求 $\pi$ 的近似值</title>
     <link href="http://ooobsidian.github.io/2017/08/29/%E5%88%A9%E7%94%A8python%E6%B1%82Pi%E7%9A%84%E8%BF%91%E4%BC%BC%E5%80%BC/"/>
     <id>http://ooobsidian.github.io/2017/08/29/利用python求Pi的近似值/</id>
     <published>2017-08-29T15:10:19.000Z</published>
-    <updated>2017-08-29T16:30:33.456Z</updated>
+    <updated>2017-08-29T16:32:18.792Z</updated>
     
     <content type="html"><![CDATA[<p>这是第一篇关于python的博客，看大家都在学习新的语言，忍不住学一发python，东西太过简单大佬就不要嘲笑我了。</p>
 <p>$\pi$ 的计算是没有一个准确的公式可以将它计算出来的，为了求出它，我们只能利用模拟的方法近似求出 $\pi$ 的值。<br><a id="more"></a><br>利用python计算 $\pi$ 的近似值的方法采用的是蒙特卡洛方法，这种方法利用的是随机抽样或统计的实验方法。    </p>
@@ -440,9 +655,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     

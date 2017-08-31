@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2017-08-31T08:45:32.297Z</updated>
+  <updated>2017-08-31T08:48:03.294Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ooobsidian.github.io/2017/08/31/%E5%88%A9%E7%94%A8python%E7%BB%98%E5%88%B6%E6%A0%91%E5%BD%A2%E5%9B%BE/"/>
     <id>http://ooobsidian.github.io/2017/08/31/利用python绘制树形图/</id>
     <published>2017-08-31T07:25:45.000Z</published>
-    <updated>2017-08-31T08:45:32.297Z</updated>
+    <updated>2017-08-31T08:48:03.294Z</updated>
     
     <content type="html"><![CDATA[<p>用python绘制小树，最后图案就长这个样子</p>
 <p><img src="http://wx3.sinaimg.cn/small/006rvSvvly1fj2y132vfpj30qq0nlglp.jpg" alt=""><br><a id="more"></a><br>首先看见这张图发现没有什么思路，其实仔细想想，它其实是在每一个分支上又加了一个分支，如此下去，就得到了这张图。因此主要思路就是利用递归的方法。</p>
@@ -210,7 +210,7 @@
 <p>接下来回到我们的主题上去，我们的目的是为了绘制一个小树，观察图形，我们发现它是一个对称的图形，每一个枝杈上会以相同的角度生成更小的枝杈，之前说过，就是利用递归思想来绘图。首先给出代码。。。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> turtle <span class="keyword">import</span> Turtle</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">tree</span><span class="params">(plist,l,a,f)</span>:</span></div><div class="line">    <span class="keyword">if</span> l&gt;<span class="number">5</span>:</div><div class="line">        lst=[]</div><div class="line">        <span class="keyword">for</span> p <span class="keyword">in</span> plist:</div><div class="line">            p.forward(l)</div><div class="line">            q = p.clone()</div><div class="line">            p.left(a)</div><div class="line">            q.right(a)</div><div class="line">            lst.append(p)</div><div class="line">            lst.append(q)</div><div class="line">        tree(lst,l*f,a,f)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">maketree</span><span class="params">(x,y)</span>:</span></div><div class="line">    p=Turtle()</div><div class="line">    p.color(<span class="string">"green"</span>)</div><div class="line">    p.pensize(<span class="number">5</span>)</div><div class="line">    p.hideturtle()</div><div class="line">    p.speed(<span class="number">10</span>)</div><div class="line">    p.left(<span class="number">90</span>)</div><div class="line">    p.penup()</div><div class="line">    p.goto(x,y)</div><div class="line">    p.pendown()</div><div class="line">    t=tree([p],<span class="number">200</span>,<span class="number">65</span>,<span class="number">0.6375</span>)</div><div class="line">    print(len(p.getscreen().turtles()))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    maketree(<span class="number">-200</span>,<span class="number">-200</span>)</div><div class="line">    maketree(<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">    maketree(<span class="number">200</span>,<span class="number">-200</span>)</div><div class="line"></div><div class="line">main()</div></pre></td></tr></table></figure></p>
 <p>其中tree()函数中，plist是一个存放函数对象的列表，l是树枝的长度，a是画笔调整角度，f是下一层枝杈长度与上层枝杈长度的比例，clone()是为了将左边的图形克隆到右边，将原对象向左旋转角度a，将克隆对象向右旋转角度a，然后将两个对象放在slt列表的最后，用于进行下一次枝杈绘制的递归调用。这种思想也是一种广度优先绘制法。然后在递归调用时，下一层枝杈长度为l*f，下一层枝杈的长度以f的比例缩短。</p>
 <p>这里在主函数中绘制了三棵小树，起始坐标分别是(-200,-200),(0,0),(200,-200)。</p>
-<p>turtle库hi一个很有意思的函数库，之前还绘制了蟒蛇图案</p>
+<p>turtle库是一个很有意思的函数库，之前还绘制了蟒蛇图案</p>
 <p><img src="http://wx2.sinaimg.cn/small/006rvSvvly1fj300im92cj31080n5gll.jpg" alt=""></p>
 <p>其代码如下<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> turtle</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawSnake</span><span class="params">(rad,angle,len,neckrad)</span>:</span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len):</div><div class="line">        turtle.circle(rad,angle)</div><div class="line">        turtle.circle(-rad,angle)</div><div class="line">    turtle.circle(rad,angle/<span class="number">2</span>)</div><div class="line">    turtle.fd(rad)</div><div class="line">    turtle.circle(neckrad+<span class="number">2</span>,<span class="number">180</span>)</div><div class="line">    turtle.fd(rad*<span class="number">2</span>/<span class="number">3</span>)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    turtle.setup(<span class="number">1300</span>,<span class="number">800</span>,<span class="number">0</span>,<span class="number">0</span>)</div><div class="line">    pythonsize = <span class="number">30</span></div><div class="line">    turtle.pensize(pythonsize)</div><div class="line">    turtle.pencolor(<span class="string">"blue"</span>)</div><div class="line">    turtle.seth(<span class="number">-40</span>)</div><div class="line">    drawSnake(<span class="number">40</span>,<span class="number">80</span>,<span class="number">5</span>,pythonsize/<span class="number">2</span>)</div><div class="line"></div><div class="line">main()</div></pre></td></tr></table></figure></p>
 <p>加油，python不难！</p>
@@ -590,11 +590,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -655,9 +655,9 @@
     </summary>
     
     
-      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
@@ -893,9 +893,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -934,9 +934,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1009,9 +1009,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1087,9 +1087,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1136,9 +1136,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="博弈" scheme="http://ooobsidian.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
     
   </entry>
   

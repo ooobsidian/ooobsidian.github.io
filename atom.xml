@@ -645,9 +645,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数论" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="原根" scheme="http://ooobsidian.github.io/tags/%E5%8E%9F%E6%A0%B9/"/>
     
@@ -751,9 +751,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
@@ -1030,9 +1030,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   
@@ -1105,9 +1105,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   

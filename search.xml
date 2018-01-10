@@ -21,8 +21,8 @@
     <url>%2F2017%2F11%2F08%2Frequests%E5%BA%93%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95%2F</url>
     <content type="text"><![CDATA[最近小小的学习了一下python网络爬虫，刚开始下载好python之后就迫不及待的爬来爬去，有天晚上，发现requests库不能正常工作了，就是这样，如下图怎么调整都没有办法运行，都会出现这样的语句，心里很是不爽，上网查了一下，发现需要绕过代理直接访问网址，不然就会发生如下状况。 解决办法首先打开“设置-Internet选项”。在“连接”标签里找到“局域网设置”，把红圈所示的复选框给勾了。然后就可以愉快的爬虫了。 大佬勿喷。。。]]></content>
       <tags>
-        <tag>技术</tag>
         <tag>python</tag>
+        <tag>技术</tag>
       </tags>
   </entry>
   <entry>

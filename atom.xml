@@ -739,11 +739,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -841,11 +841,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="动态规划" scheme="http://ooobsidian.github.io/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/"/>
     
       <category term="背包" scheme="http://ooobsidian.github.io/tags/%E8%83%8C%E5%8C%85/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   

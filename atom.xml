@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-03-30T17:48:36.727Z</updated>
+  <updated>2018-03-31T06:50:57.771Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,13 +20,11 @@
     <link href="http://ooobsidian.github.io/2018/03/31/npm-install-vue-router-next-%E5%AE%89%E8%A3%85%E5%A4%B1%E8%B4%A5%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/"/>
     <id>http://ooobsidian.github.io/2018/03/31/npm-install-vue-router-next-安装失败的解决方法/</id>
     <published>2018-03-30T17:33:36.000Z</published>
-    <updated>2018-03-30T17:48:36.727Z</updated>
+    <updated>2018-03-31T06:50:57.771Z</updated>
     
-    <content type="html"><![CDATA[<p>#问题<br><img src="" alt="http://wx2.sinaimg.cn/small/006rvSvvly1fpvddpvwswj30cr017glg.jpg"><br><a id="more"></a></p>
-<p>#解决</p>
-<p>##方法一</p>
-<ul>
-<li>使用命令npm install vue-router@0.7.13兼容1.0版本vue<br>##方法二</li>
+    <content type="html"><![CDATA[<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><p><img src="" alt="http://wx2.sinaimg.cn/small/006rvSvvly1fpvddpvwswj30cr017glg.jpg"><br><a id="more"></a></p>
+<h1 id="解决"><a href="#解决" class="headerlink" title="解决"></a>解决</h1><h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><ul>
+<li>使用命令npm install vue-router@0.7.13兼容1.0版本vue<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2></li>
 <li><p>基于vue2.0，写对应的方法<br><img src="" alt="http://files.jb51.net/file_images/article/201706/2017062711463322.png"></p>
 </li>
 <li><p>注：1.0和2.0在一些用法上有比较大的差别，用的时候需要注意。</p>
@@ -38,7 +36,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;#问题&lt;br&gt;&lt;img src=&quot;&quot; alt=&quot;http://wx2.sinaimg.cn/small/006rvSvvly1fpvddpvwswj30cr017glg.jpg&quot;&gt;&lt;br&gt;
+      &lt;h1 id=&quot;问题&quot;&gt;&lt;a href=&quot;#问题&quot; class=&quot;headerlink&quot; title=&quot;问题&quot;&gt;&lt;/a&gt;问题&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;&quot; alt=&quot;http://wx2.sinaimg.cn/small/006rvSvvly1fpvddpvwswj30cr017glg.jpg&quot;&gt;&lt;br&gt;
     
     </summary>
     
@@ -213,9 +211,9 @@
     </summary>
     
     
-      <category term="技术" scheme="http://ooobsidian.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
-    
       <category term="python" scheme="http://ooobsidian.github.io/tags/python/"/>
+    
+      <category term="技术" scheme="http://ooobsidian.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
     
   </entry>
   
@@ -966,9 +964,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -993,9 +991,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1041,9 +1039,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="数学" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1171,9 +1169,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+    
+      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
     
   </entry>
   

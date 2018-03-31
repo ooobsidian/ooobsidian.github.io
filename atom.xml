@@ -100,7 +100,7 @@
     <link href="http://ooobsidian.github.io/2018/01/10/%E5%88%A9%E7%94%A8%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97%E5%AE%9E%E7%8E%B0%E6%A0%88%E7%9A%84%E6%8E%92%E5%88%97/"/>
     <id>http://ooobsidian.github.io/2018/01/10/利用循环队列实现栈的排列/</id>
     <published>2018-01-10T07:09:36.000Z</published>
-    <updated>2018-01-10T11:43:44.495Z</updated>
+    <updated>2018-01-10T11:43:44.496Z</updated>
     
     <content type="html"><![CDATA[<p>首先大家知道栈和队列的工作原理，其实他们就是一个可以在两端进行对数据操作的线性表。</p>
 <ul>
@@ -199,7 +199,7 @@
     <link href="http://ooobsidian.github.io/2017/11/08/requests%E5%BA%93%E4%B8%8D%E8%83%BD%E6%AD%A3%E5%B8%B8%E5%B7%A5%E4%BD%9C%E7%9A%84%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/"/>
     <id>http://ooobsidian.github.io/2017/11/08/requests库不能正常工作的解决办法/</id>
     <published>2017-11-08T13:51:51.000Z</published>
-    <updated>2018-01-02T05:37:30.789Z</updated>
+    <updated>2018-01-02T05:37:30.790Z</updated>
     
     <content type="html"><![CDATA[<p>最近小小的学习了一下python网络爬虫，刚开始下载好python之后就迫不及待的爬来爬去，有天晚上，发现requests库不能正常工作了，就是这样，如下图<br><img src="http://wx2.sinaimg.cn/mw690/006rvSvvgy1flaprwflfrj31hc0u0te7.jpg" alt=""><br>怎么调整都没有办法运行，都会出现这样的语句，心里很是不爽，上网查了一下，发现需要绕过代理直接访问网址，不然就会发生如下状况。<br><a id="more"></a></p>
 <h2 id="解决办法"><a href="#解决办法" class="headerlink" title="解决办法"></a>解决办法</h2><p>首先打开“设置-Internet选项”。<br><img src="http://wx1.sinaimg.cn/mw690/006rvSvvgy1flaprx50luj313x0o6767.jpg" alt=""><br>在“连接”标签里找到“局域网设置”，把红圈所示的复选框给勾了。<br><img src="http://wx4.sinaimg.cn/mw690/006rvSvvgy1flaprxqsoej30gz0mddgt.jpg" alt=""><br>然后就可以愉快的爬虫了。<br><img src="http://wx3.sinaimg.cn/mw690/006rvSvvgy1flaprycbeqj31hc0u0q77.jpg" alt=""></p>
@@ -224,7 +224,7 @@
     <link href="http://ooobsidian.github.io/2017/09/24/%E6%95%B0%E5%AD%97%E9%80%BB%E8%BE%91/"/>
     <id>http://ooobsidian.github.io/2017/09/24/数字逻辑/</id>
     <published>2017-09-24T12:28:46.000Z</published>
-    <updated>2018-03-30T17:48:00.047Z</updated>
+    <updated>2018-03-30T17:48:00.048Z</updated>
     
     <content type="html"><![CDATA[<p>我们都知道数字逻辑的概念很杂，很细，虽然每个概念都很简单，但是当很多概念放在一起的的时候，就容易混淆。现在就来再理一理这些容易混淆的概念吧。<br><a id="more"></a></p>
 <h2 id="带符号数的代码表示"><a href="#带符号数的代码表示" class="headerlink" title="带符号数的代码表示"></a>带符号数的代码表示</h2><h3 id="真值与机器数"><a href="#真值与机器数" class="headerlink" title="真值与机器数"></a>真值与机器数</h3><p>原码、反码、补码的出现就是为了使计算机的运算更高效，可以将减法转换成加法。更加方便和高效。</p>
@@ -257,7 +257,7 @@
     <link href="http://ooobsidian.github.io/2017/08/31/%E5%88%A9%E7%94%A8python%E7%BB%98%E5%88%B6%E6%A0%91%E5%BD%A2%E5%9B%BE/"/>
     <id>http://ooobsidian.github.io/2017/08/31/利用python绘制树形图/</id>
     <published>2017-08-31T07:25:45.000Z</published>
-    <updated>2017-08-31T08:48:03.294Z</updated>
+    <updated>2017-08-31T08:48:03.295Z</updated>
     
     <content type="html"><![CDATA[<p>用python绘制小树，最后图案就长这个样子</p>
 <p><img src="http://wx3.sinaimg.cn/small/006rvSvvly1fj2y132vfpj30qq0nlglp.jpg" alt=""><br><a id="more"></a><br>首先看见这张图发现没有什么思路，其实仔细想想，它其实是在每一个分支上又加了一个分支，如此下去，就得到了这张图。因此主要思路就是利用递归的方法。</p>
@@ -472,7 +472,7 @@
     <link href="http://ooobsidian.github.io/2017/08/29/%E5%88%A9%E7%94%A8python%E6%B1%82Pi%E7%9A%84%E8%BF%91%E4%BC%BC%E5%80%BC/"/>
     <id>http://ooobsidian.github.io/2017/08/29/利用python求Pi的近似值/</id>
     <published>2017-08-29T15:10:19.000Z</published>
-    <updated>2017-08-29T16:32:18.792Z</updated>
+    <updated>2017-08-29T16:32:18.793Z</updated>
     
     <content type="html"><![CDATA[<p>这是第一篇关于python的博客，看大家都在学习新的语言，忍不住学一发python，东西太过简单大佬就不要嘲笑我了。</p>
 <p>$\pi$ 的计算是没有一个准确的公式可以将它计算出来的，为了求出它，我们只能利用模拟的方法近似求出 $\pi$ 的值。<br><a id="more"></a><br>利用python计算 $\pi$ 的近似值的方法采用的是蒙特卡洛方法，这种方法利用的是随机抽样或统计的实验方法。    </p>
@@ -827,11 +827,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -1130,9 +1130,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
-    
       <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
+      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
     
   </entry>
   
@@ -1171,9 +1171,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   

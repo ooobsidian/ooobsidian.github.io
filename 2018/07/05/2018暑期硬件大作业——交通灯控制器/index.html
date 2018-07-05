@@ -129,7 +129,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fszbofqpboj312v0j80vw.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd5xn6xhj30nt0huwfs.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd8ur5vlj310e08bdgd.jpg">
-<meta property="og:updated_time" content="2018-07-05T15:33:50.870Z">
+<meta property="og:updated_time" content="2018-07-05T15:37:03.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018暑期硬件大作业——交通灯控制器">
 <meta name="twitter:description" content="又来到了炎热的暑假，又开始了无脑的实习，刚做完小程序，又要开始做硬件大作业，学校这就是明晃晃的不让我们回去啊… 废话不多说，直接看题目。 交通灯控制器 可自由设定亮灯时间（注意十字路口相应的红绿灯情况） 数码显示时间 显示一个十字路口灯的情况">
@@ -476,9 +476,10 @@
 <h3 id="交通灯控制器"><a href="#交通灯控制器" class="headerlink" title="交通灯控制器"></a>交通灯控制器</h3><ul>
 <li>可自由设定亮灯时间（注意十字路口相应的红绿灯情况）</li>
 <li>数码显示时间</li>
-<li>显示一个十字路口灯的情况<a id="more"></a>
-首先题目要求可自由设定亮灯时间，于是我们采用的是ram作为内存，可读可写，这样就可以实现我们的要求，但是ram不会用，Quartus II上除了最基本的元件例如与门或门或者一些集成芯片如74193，74138这些还是会用的，但是上学期的计算机组成原理的课程设计也是利用给定的芯片设计一个存储器，当时查网上的资料，但是后来由于不会使用ram（因为它需要在放之前配置芯片的信息），我们就随便画了画，截了个图就交报告了。但是这次又要用到ram，我当时也是僵住了，大家都在紧张的准备验收，而我们却一直没有进度。</li>
+<li>显示一个十字路口灯的情况</li>
 </ul>
+<a id="more"></a>
+<p>首先题目要求可自由设定亮灯时间，于是我们采用的是ram作为内存，可读可写，这样就可以实现我们的要求，但是ram不会用，Quartus II上除了最基本的元件例如与门或门或者一些集成芯片如74193，74138这些还是会用的，但是上学期的计算机组成原理的课程设计也是利用给定的芯片设计一个存储器，当时查网上的资料，但是后来由于不会使用ram（因为它需要在放之前配置芯片的信息），我们就随便画了画，截了个图就交报告了。但是这次又要用到ram，我当时也是僵住了，大家都在紧张的准备验收，而我们却一直没有进度。</p>
 <p>后来问了张思远，因为他们组基本做好了要验收，而且和我们是同一个题目，他们的电路也是按照群神的电路画的，我们也是，但是我由于不会使用ram，导致无法进行下一步，今天上午他们验收结束后，祝文康同学认真的给我讲解了一下ram的使用方法以及整个电路的原理，在这里感谢他。</p>
 <p>好，接下来就来到了重点部分，如何配置ram。</p>
 <p>我们先来看一下ram是个什么东西，就是下图。</p>

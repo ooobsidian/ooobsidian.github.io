@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-03-31T13:44:25.963Z</updated>
+  <updated>2018-07-05T15:32:16.450Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -14,6 +14,149 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018暑期硬件大作业——交通灯控制器</title>
+    <link href="http://ooobsidian.github.io/2018/07/05/2018%E6%9A%91%E6%9C%9F%E7%A1%AC%E4%BB%B6%E5%A4%A7%E4%BD%9C%E4%B8%9A%E2%80%94%E2%80%94%E4%BA%A4%E9%80%9A%E7%81%AF%E6%8E%A7%E5%88%B6%E5%99%A8/"/>
+    <id>http://ooobsidian.github.io/2018/07/05/2018暑期硬件大作业——交通灯控制器/</id>
+    <published>2018-07-05T12:04:02.000Z</published>
+    <updated>2018-07-05T15:32:16.450Z</updated>
+    
+    <content type="html"><![CDATA[<p>又来到了炎热的暑假，又开始了无脑的实习，刚做完小程序，又要开始做硬件大作业，学校这就是明晃晃的不让我们回去啊…</p>
+<p>废话不多说，直接看题目。</p>
+<h3 id="交通灯控制器"><a href="#交通灯控制器" class="headerlink" title="交通灯控制器"></a>交通灯控制器</h3><ul>
+<li>可自由设定亮灯时间（注意十字路口相应的红绿灯情况）</li>
+<li>数码显示时间</li>
+<li>显示一个十字路口灯的情况</li>
+</ul>
+<p>首先题目要求可自由设定亮灯时间，于是我们采用的是ram作为内存，可读可写，这样就可以实现我们的要求，但是ram不会用，Quartus II上除了最基本的元件例如与门或门或者一些集成芯片如74193，74138这些还是会用的，但是上学期的计算机组成原理的课程设计也是利用给定的芯片设计一个存储器，当时查网上的资料，但是后来由于不会使用ram（因为它需要在放之前配置芯片的信息），我们就随便画了画，截了个图就交报告了。但是这次又要用到ram，我当时也是僵住了，大家都在紧张的准备验收，而我们却一直没有进度。</p>
+<p>后来问了张思远，因为他们组基本做好了要验收，而且和我们是同一个题目，他们的电路也是按照群神的电路画的，我们也是，但是我由于不会使用ram，导致无法进行下一步，今天上午他们验收结束后，祝文康同学认真的给我讲解了一下ram的使用方法以及整个电路的原理，在这里感谢他。</p>
+<p>好，接下来就来到了重点部分，如何配置ram。</p>
+<p>我们先来看一下ram是个什么东西，就是下图。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszbzgw6wej307o06kdfs.jpg" alt=""></p>
+<p>那么在本课题中是如何配置这个ram的呢，进入megafunctions，再打开storage，这里我们选择lpm_ram_dq，因为dq是读写分离的。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc2gq0idj30oc0ftq3n.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc40pu63j30oc0ftq3j.jpg" alt=""></p>
+<p>双击它，我们就来到了这个页面。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc61b8h4j30e90dnq3b.jpg" alt=""></p>
+<p>直接点击next，在这里我们选择ACEX 1K，因为要和我们学校实验室的芯片的型号匹配，而且我们选择10位输入，因为我们在设计的时候（其实是参考群神的），10位输入，其中前两位是作为灯的选择，00作为红灯亮，01作为黄灯亮，10作为绿灯亮，后八位是控制灯亮的时间，两位8421BDC码，例如0100010000就是01 0001 0000，其含义是黄灯亮10秒。好，现在我们进行下一步。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc7e2y5aj30fb0db3zi.jpg" alt=""></p>
+<p>还是在同一步里，我们点击Mem Init，目的是对ram进行初始化，就是在ram中内置一些数据，在模拟的时候可以看到初始化之后的效果，而且之后也可以自行设置亮灯时间。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcgxaavfj30gt0db3zh.jpg" alt=""></p>
+<p>我们勾选下面的利用文件初始化的按钮，然后点击Browse按钮导入初始化文件，但是你会发现，在你工程目录下面没有什么文件可以对他初始化，所以现在我们就是要新建一个初始化文件。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcjs5rlqj30gt0dbjsh.jpg" alt=""></p>
+<p>初始化文件有两种，一种是以hex作为后缀名的，另一种是以mif作为后缀名的，听祝文康同学说hex文件不是很好生成，所以我们这里采用mif文件。</p>
+<p>我们点击File新建一个mif文件，我们这里只需要设置32位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcpfb10nj30g701o0so.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcqj7yatj30a00a5749.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcuvnumaj306803smx0.jpg" alt=""></p>
+<p>进入mif文件，我们只需要将前四个地址设置一下，因为前两位到11时电路就直接循环到第一个地址去了，这里我们将红灯设置为13秒，黄灯3秒，绿灯10秒。这就作为我们的初始状态。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszctrs17pj30ke03njrb.jpg" alt=""></p>
+<p>接下来我们来看看整体的电路图。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszbofqpboj312v0j80vw.jpg" alt=""></p>
+<p>这里的两个74190作为BCD计数器，我们将GN和DNUP接入使能端，这样就可以开始倒计时，LDN是作为数据预置使能端，可以将输入的data数据预置到计数器中，然后开始倒计时。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd5xn6xhj30nt0huwfs.jpg" alt=""></p>
+<p>下面这个74190是倒计时低位计数器，外加的整个电路的时钟信号CLK1连接到上面，但没有连接在高位上，高位的变化是通过低位的变化而变化的——当低位减到0时，高位就减1，当高位和低位都减到0时，我们就通过低位计数器右下方的这个与非门和或非门让地址寄存器的地址加一，同时通过两个计数器之间的这个与门去译码器去控制相应的灯。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd8ur5vlj310e08bdgd.jpg" alt=""></p>
+<p>至此，就基本介绍了这个电路的原理，下面总结一下具体的接口和元件。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">元件</th>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">74193</td>
+<td style="text-align:center">地址计数器</td>
+<td style="text-align:center">对地址进行改变，取到每个地址中的命令</td>
+</tr>
+<tr>
+<td style="text-align:center">lpm_ram_dq</td>
+<td style="text-align:center">随机存储器</td>
+<td style="text-align:center">可读可写，作为电路的核心部件，可以进行手动设定时间的功能</td>
+</tr>
+<tr>
+<td style="text-align:center">7474</td>
+<td style="text-align:center">双D触发器</td>
+<td style="text-align:center">保证灯与数据变化可以通过时钟信号同步变化</td>
+</tr>
+<tr>
+<td style="text-align:center">74193M</td>
+<td style="text-align:center">译码器</td>
+<td style="text-align:center">通过译码器选择相应的灯</td>
+</tr>
+<tr>
+<td style="text-align:center">74190</td>
+<td style="text-align:center">BCD码计数器</td>
+<td style="text-align:center">通过BCD码进行倒计数</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">接口</th>
+<th style="text-align:center">功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">CLR</td>
+<td style="text-align:center">整个系统的初始化开关</td>
+</tr>
+<tr>
+<td style="text-align:center">WCLK</td>
+<td style="text-align:center">开关一下可以更改一下地址</td>
+</tr>
+<tr>
+<td style="text-align:center">CLK1</td>
+<td style="text-align:center">整个电路的时钟信号，这里我们接到1这里我们接到1Hz上</td>
+</tr>
+<tr>
+<td style="text-align:center">WCLK</td>
+<td style="text-align:center">电路的复位开关，当打开时，会将相应灯的倒计时恢复到最开始的时间，而且会暂停</td>
+</tr>
+<tr>
+<td style="text-align:center">MEMCLK</td>
+<td style="text-align:center">电路的读写始终信号，这里我们接到10Hz上</td>
+</tr>
+<tr>
+<td style="text-align:center">input[9..0]</td>
+<td style="text-align:center">10位可以手动输入来设置相应的灯的时间</td>
+</tr>
+<tr>
+<td style="text-align:center">WE</td>
+<td style="text-align:center">读写开关</td>
+</tr>
+<tr>
+<td style="text-align:center">Y0</td>
+<td style="text-align:center">红灯</td>
+</tr>
+<tr>
+<td style="text-align:center">Y1</td>
+<td style="text-align:center">黄灯</td>
+</tr>
+<tr>
+<td style="text-align:center">Y2</td>
+<td style="text-align:center">绿灯</td>
+</tr>
+<tr>
+<td style="text-align:center">Q0A~Q0D</td>
+<td style="text-align:center">低位的数据输出，这四个输出接到数码管的四个引脚上</td>
+</tr>
+<tr>
+<td style="text-align:center">Q1A~Q1D</td>
+<td style="text-align:center">高位的数据输出，这四个输出接到数码管的四个引脚上</td>
+</tr>
+</tbody>
+</table>
+<p>好，到这里，基本上结束了，来说说这次的感想。硬件大作业设置的目的就是让我们平常一直打代码的学生也学习一下底层的硬件知识，不能只停留在软件和代码上，而且也间接的让我们复习一下数字逻辑的知识。这次的任务我认为既不是很简单也不是很难，主要是思维上的转变，因为经常是用代码的逻辑把想的东西表达出来，但是在硬件上我的思路就不是很清晰，不知道到底用哪个元件，哪个芯片，芯片的引脚都有什么功能，这些知识对我来说其实是比较薄弱的地方，当我实在没有办法前进的时候，通过上网查资料以及通过同学的帮助，完成之后回头看这个题目也不是很难，关键就是思路的问题。这次的任务让我明白的认识到了自己的不足之处，因为计算机这个学科不仅仅是打代码这么简单，同时还要对硬件方面做一些了解。通过这次大作业的训练，从最开始的选择元件再对电路的一步步的调试修改错误再到最后的成功，从最开始的跃跃欲试到绝望再到最后的成就感，让我发现了对硬件知识的缺乏。所以在以后的学习中，还需要继续努力，不过在这次与同学讨论的过程中让我收获不少知识，让我明白了ram具体怎么设置、元件引脚的功能以及逻辑怎么用电路表达出来。作为计算机的学生，应该既具备很强的代码能力也要有充足的硬件知识。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;又来到了炎热的暑假，又开始了无脑的实习，刚做完小程序，又要开始做硬件大作业，学校这就是明晃晃的不让我们回去啊…&lt;/p&gt;
+&lt;p&gt;废话不多说，直接看题目。&lt;/p&gt;
+&lt;h3 id=&quot;交通灯控制器&quot;&gt;&lt;a href=&quot;#交通灯控制器&quot; class=&quot;headerlink&quot; titl
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://ooobsidian.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="硬件" scheme="http://ooobsidian.github.io/tags/%E7%A1%AC%E4%BB%B6/"/>
+    
+  </entry>
   
   <entry>
     <title>npm install vue-router@next 安装失败的解决方法</title>
@@ -827,11 +970,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
-    
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -892,9 +1035,9 @@
     </summary>
     
     
-      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
-    
       <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     
@@ -1130,50 +1273,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
     
-  </entry>
-  
-  <entry>
-    <title>POJ 2349 Arctic Network (Kruskal)</title>
-    <link href="http://ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/"/>
-    <id>http://ooobsidian.github.io/2017/08/08/POJ-2349-Kruskal-Arctic-Network/</id>
-    <published>2017-08-08T07:17:33.000Z</published>
-    <updated>2017-08-08T07:27:18.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/17341/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>The Department of National Defence (DND) wishes to connect several northern outposts by a wireless network. Two different communication technologies are to be used in establishing the network: every outpost will have a radio transceiver and some outposts will in addition have a satellite channel.<br>Any two outposts with a satellite channel can communicate via the satellite, regardless of their location. Otherwise, two outposts can communicate by radio only if the distance between them does not exceed $D$, which depends of the power of the transceivers. Higher power yields higher $D$ but costs more. Due to purchasing and maintenance considerations, the transceivers at the outposts must be identical; that is, the value of $D$ is the same for every pair of outposts.<br><a id="more"></a><br>Your job is to determine the minimum $D$ required for the transceivers. There must be at least one communication path (direct or indirect) between every pair of outposts.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The first line of input contains $N$, the number of test cases. The first line of each test case contains $1 \leq S \leq 100$, the number of satellite channels, and $S\leq P \leq 500$ , the number of outposts. $P$ lines follow, giving the $(x,y)$ coordinates of each outpost in km (coordinates are integers between $0$ and $10,000$).</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each case, output should consist of a single line giving the minimum D required to connect the network. Output should be specified to $2$ decimal points.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line">2 4</div><div class="line">0 100</div><div class="line">0 300</div><div class="line">0 600</div><div class="line">150 750</div></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">212.13</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>有$P$个站点，每个站点之间都有权重（两点之间的距离），给出$S$个卫星，如果两个站点之间用卫星连接，那么它们之间的权值将变为 $0$ ，给出每个站点的坐标，需要保证：</p>
-<p>1、任意两个站点都可以联系（直接或者间接）；</p>
-<p>2、使任意两站点的最大通信花费变得最小。</p>
-<p>需要输出最大的通信花费。</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>最小生成树的问题，利用 $Kruskal$ 算法，它的目的是建立一个最小生成树，但是模板中最后返回的是最小生成树的权值和。它的第一步是给所有边按照从小到大的顺序排列。这一步可以直接调用库函数 $qsort$ 或者 $sort$ 。记每条边为 $(u,v)$。<br>有两种情况：1、 $u$ 和 $v$ 在同一个连通分量中，加入 $(u,v)$ 会形成环，不能选择。<br>2、如果$u$,$v$不在同一个连通分量中,那么加入 $(u,v)$ 一定是最优解。<br>现在需要知道三件事：</p>
-<p>1、在一张全联通图的最小生成树中，新增一条权为0的边，新增加的边则取代形成的环中的另外一条边形成新的最小生成树。</p>
-<p>2、在一张全连通图中，若在其最小生成树中挑选 $S$ 个节点，在其两两间添加权为 $0$ 的边，则新生成的边必定可以取代生成的环中的 $S−1$ 个边构成新的最小生成树。选择 $S$ 个节点，得到的最小生成树由 $S-1$ 条权为 $0$ 的边构成，接下来将剩下的点加入最小生成树里，只需要添加 $(N-1)-(S-1)=N-S$ 条边。</p>
-<p>3、在一张全连通图中，新增的一条边可以和任意一条边构成环。</p>
-<p>于是，利用 $Kruskal$ 算法在求最小生成树的时候，如果 $u$ 和 $v$ 不在同一个连通分量里，那就通过 $pair$ 建立坐标将 $ans$ 放入 $vector$ 数组里，因为 $ans$ 在过程中已经是从小到大排好的，最后需要输出的就是 $ans[N-S-2]$ 。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="keyword">typedef</span> pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; PII;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1e9+7</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(a,x) memset(a,x,sizeof(a))</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mp(x,y) make_pair(x,y)</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> pb(x) push_back(x)</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</div><div class="line"><span class="keyword">int</span> fa[<span class="number">250005</span>];</div><div class="line"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; ans;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;=n;i++)</div><div class="line">    &#123;</div><div class="line">        fa[i]=i;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">if</span>(fa[x]!=x)</div><div class="line">        fa[x]=find(fa[x]);</div><div class="line">    <span class="keyword">return</span> fa[x];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">unite</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    x=find(x);</div><div class="line">    y=find(y);</div><div class="line">    <span class="keyword">if</span>(x==y)</div><div class="line">        <span class="keyword">return</span> ;</div><div class="line">    <span class="keyword">else</span></div><div class="line">        fa[x]=y;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">bool</span> <span class="title">same</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> find(x)==find(y);</div><div class="line">&#125;</div><div class="line"><span class="built_in">vector</span> &lt;pair&lt;<span class="keyword">double</span>,PII&gt; &gt; G;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_egde</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">double</span> d)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    G.pb(mp(d,mp(u,v)));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">Kruskal</span><span class="params">(<span class="keyword">int</span> n)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    init(n);</div><div class="line">    sort(G.begin(),G.end());</div><div class="line">    <span class="keyword">int</span> m=G.size();</div><div class="line">    <span class="keyword">int</span> num=<span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;m;i++)</div><div class="line">    &#123;</div><div class="line">        pair&lt;<span class="keyword">double</span>,PII&gt; p=G[i];</div><div class="line">        <span class="keyword">int</span> x=p.second.first;</div><div class="line">        <span class="keyword">int</span> y=p.second.second;</div><div class="line">        <span class="keyword">double</span> d=p.first;</div><div class="line">        <span class="keyword">if</span>(!same(x,y))</div><div class="line">        &#123;</div><div class="line">            unite(x,y);</div><div class="line">            num++;</div><div class="line">            ans.pb(d);  <span class="comment">//将边权放入vector中</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span>(num==n<span class="number">-1</span>)</div><div class="line">            <span class="keyword">break</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">double</span> <span class="title">dis</span><span class="params">(<span class="keyword">double</span> x1,<span class="keyword">double</span> y1,<span class="keyword">double</span> x2,<span class="keyword">double</span> y2)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">sqrt</span>((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2));</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">joint</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    x=find(x);</div><div class="line">    y=find(y);</div><div class="line">    <span class="keyword">if</span>(x!=y)</div><div class="line">    &#123;</div><div class="line">        fa[x]=y;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> t;</div><div class="line">    <span class="built_in">cin</span>&gt;&gt;t;</div><div class="line">    <span class="keyword">int</span> s,p;</div><div class="line">    <span class="keyword">while</span>(t--)</div><div class="line">    &#123;</div><div class="line">        pair&lt;<span class="keyword">double</span>,<span class="keyword">double</span>&gt; P[<span class="number">505</span>];</div><div class="line">        G.clear();</div><div class="line">        ans.clear();</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;s&gt;&gt;p;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;p;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">cin</span>&gt;&gt;P[i].first&gt;&gt;P[i].second;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;p;i++)</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;p;j++)</div><div class="line">            &#123;</div><div class="line">                <span class="keyword">double</span> d=dis(P[i].first,P[i].second,P[j].first,P[j].second);</div><div class="line">                add_egde(i,j,d);</div><div class="line">                add_egde(j,i,d);</div><div class="line">            &#125;</div><div class="line">        Kruskal(p);</div><div class="line">        <span class="built_in">printf</span>(<span class="string">"%.2f\n"</span>,ans[p-s<span class="number">-1</span>]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>自己理解好久以及在大佬的帮助下最终还是做出了，太菜了。。。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/17341/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题目&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;The Department of National Defence (DND) wishes to connect several northern outposts by a wireless network. Two different communication technologies are to be used in establishing the network: every outpost will have a radio transceiver and some outposts will in addition have a satellite channel.&lt;br&gt;Any two outposts with a satellite channel can communicate via the satellite, regardless of their location. Otherwise, two outposts can communicate by radio only if the distance between them does not exceed $D$, which depends of the power of the transceivers. Higher power yields higher $D$ but costs more. Due to purchasing and maintenance considerations, the transceivers at the outposts must be identical; that is, the value of $D$ is the same for every pair of outposts.&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
-    
-      <category term="图论" scheme="http://ooobsidian.github.io/tags/%E5%9B%BE%E8%AE%BA/"/>
-    
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   

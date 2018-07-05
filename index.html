@@ -459,128 +459,19 @@
 
       
         
-          
-            <p>又来到了炎热的暑假，又开始了无脑的实习，刚做完小程序，又要开始做硬件大作业，学校这就是明晃晃的不让我们回去啊…</p>
+          <p>又来到了炎热的暑假，又开始了无脑的实习，刚做完小程序，又要开始做硬件大作业，学校这就是明晃晃的不让我们回去啊…</p>
 <p>废话不多说，直接看题目。</p>
 <h3 id="交通灯控制器"><a href="#交通灯控制器" class="headerlink" title="交通灯控制器"></a>交通灯控制器</h3><ul>
 <li>可自由设定亮灯时间（注意十字路口相应的红绿灯情况）</li>
 <li>数码显示时间</li>
-<li>显示一个十字路口灯的情况</li>
-</ul>
-<p>首先题目要求可自由设定亮灯时间，于是我们采用的是ram作为内存，可读可写，这样就可以实现我们的要求，但是ram不会用，Quartus II上除了最基本的元件例如与门或门或者一些集成芯片如74193，74138这些还是会用的，但是上学期的计算机组成原理的课程设计也是利用给定的芯片设计一个存储器，当时查网上的资料，但是后来由于不会使用ram（因为它需要在放之前配置芯片的信息），我们就随便画了画，截了个图就交报告了。但是这次又要用到ram，我当时也是僵住了，大家都在紧张的准备验收，而我们却一直没有进度。</p>
-<p>后来问了张思远，因为他们组基本做好了要验收，而且和我们是同一个题目，他们的电路也是按照群神的电路画的，我们也是，但是我由于不会使用ram，导致无法进行下一步，今天上午他们验收结束后，祝文康同学认真的给我讲解了一下ram的使用方法以及整个电路的原理，在这里感谢他。</p>
-<p>好，接下来就来到了重点部分，如何配置ram。</p>
-<p>我们先来看一下ram是个什么东西，就是下图。</p>
-<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszbzgw6wej307o06kdfs.jpg" alt=""></p>
-<p>那么在本课题中是如何配置这个ram的呢，进入megafunctions，再打开storage，这里我们选择lpm_ram_dq，因为dq是读写分离的。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc2gq0idj30oc0ftq3n.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc40pu63j30oc0ftq3j.jpg" alt=""></p>
-<p>双击它，我们就来到了这个页面。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc61b8h4j30e90dnq3b.jpg" alt=""></p>
-<p>直接点击next，在这里我们选择ACEX 1K，因为要和我们学校实验室的芯片的型号匹配，而且我们选择10位输入，因为我们在设计的时候（其实是参考群神的），10位输入，其中前两位是作为灯的选择，00作为红灯亮，01作为黄灯亮，10作为绿灯亮，后八位是控制灯亮的时间，两位8421BDC码，例如0100010000就是01 0001 0000，其含义是黄灯亮10秒。好，现在我们进行下一步。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszc7e2y5aj30fb0db3zi.jpg" alt=""></p>
-<p>还是在同一步里，我们点击Mem Init，目的是对ram进行初始化，就是在ram中内置一些数据，在模拟的时候可以看到初始化之后的效果，而且之后也可以自行设置亮灯时间。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcgxaavfj30gt0db3zh.jpg" alt=""></p>
-<p>我们勾选下面的利用文件初始化的按钮，然后点击Browse按钮导入初始化文件，但是你会发现，在你工程目录下面没有什么文件可以对他初始化，所以现在我们就是要新建一个初始化文件。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcjs5rlqj30gt0dbjsh.jpg" alt=""></p>
-<p>初始化文件有两种，一种是以hex作为后缀名的，另一种是以mif作为后缀名的，听祝文康同学说hex文件不是很好生成，所以我们这里采用mif文件。</p>
-<p>我们点击File新建一个mif文件，我们这里只需要设置32位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcpfb10nj30g701o0so.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcqj7yatj30a00a5749.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszcuvnumaj306803smx0.jpg" alt=""></p>
-<p>进入mif文件，我们只需要将前四个地址设置一下，因为前两位到11时电路就直接循环到第一个地址去了，这里我们将红灯设置为13秒，黄灯3秒，绿灯10秒。这就作为我们的初始状态。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszctrs17pj30ke03njrb.jpg" alt=""></p>
-<p>接下来我们来看看整体的电路图。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszbofqpboj312v0j80vw.jpg" alt=""></p>
-<p>这里的两个74190作为BCD计数器，我们将GN和DNUP接入使能端，这样就可以开始倒计时，LDN是作为数据预置使能端，可以将输入的data数据预置到计数器中，然后开始倒计时。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd5xn6xhj30nt0huwfs.jpg" alt=""></p>
-<p>下面这个74190是倒计时低位计数器，外加的整个电路的时钟信号CLK1连接到上面，但没有连接在高位上，高位的变化是通过低位的变化而变化的——当低位减到0时，高位就减1，当高位和低位都减到0时，我们就通过低位计数器右下方的这个与非门和或非门让地址寄存器的地址加一，同时通过两个计数器之间的这个与门去译码器去控制相应的灯。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fszd8ur5vlj310e08bdgd.jpg" alt=""></p>
-<p>至此，就基本介绍了这个电路的原理，下面总结一下具体的接口和元件。</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">元件</th>
-<th style="text-align:center">名称</th>
-<th style="text-align:center">备注</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">74193</td>
-<td style="text-align:center">地址计数器</td>
-<td style="text-align:center">对地址进行改变，取到每个地址中的命令</td>
-</tr>
-<tr>
-<td style="text-align:center">lpm_ram_dq</td>
-<td style="text-align:center">随机存储器</td>
-<td style="text-align:center">可读可写，作为电路的核心部件，可以进行手动设定时间的功能</td>
-</tr>
-<tr>
-<td style="text-align:center">7474</td>
-<td style="text-align:center">双D触发器</td>
-<td style="text-align:center">保证灯与数据变化可以通过时钟信号同步变化</td>
-</tr>
-<tr>
-<td style="text-align:center">74193M</td>
-<td style="text-align:center">译码器</td>
-<td style="text-align:center">通过译码器选择相应的灯</td>
-</tr>
-<tr>
-<td style="text-align:center">74190</td>
-<td style="text-align:center">BCD码计数器</td>
-<td style="text-align:center">通过BCD码进行倒计数</td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">接口</th>
-<th style="text-align:center">功能</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">CLR</td>
-<td style="text-align:center">整个系统的初始化开关</td>
-</tr>
-<tr>
-<td style="text-align:center">WCLK</td>
-<td style="text-align:center">开关一下可以更改一下地址</td>
-</tr>
-<tr>
-<td style="text-align:center">CLK1</td>
-<td style="text-align:center">整个电路的时钟信号，这里我们接到1这里我们接到1Hz上</td>
-</tr>
-<tr>
-<td style="text-align:center">WCLK</td>
-<td style="text-align:center">电路的复位开关，当打开时，会将相应灯的倒计时恢复到最开始的时间，而且会暂停</td>
-</tr>
-<tr>
-<td style="text-align:center">MEMCLK</td>
-<td style="text-align:center">电路的读写始终信号，这里我们接到10Hz上</td>
-</tr>
-<tr>
-<td style="text-align:center">input[9..0]</td>
-<td style="text-align:center">10位可以手动输入来设置相应的灯的时间</td>
-</tr>
-<tr>
-<td style="text-align:center">WE</td>
-<td style="text-align:center">读写开关</td>
-</tr>
-<tr>
-<td style="text-align:center">Y0</td>
-<td style="text-align:center">红灯</td>
-</tr>
-<tr>
-<td style="text-align:center">Y1</td>
-<td style="text-align:center">黄灯</td>
-</tr>
-<tr>
-<td style="text-align:center">Y2</td>
-<td style="text-align:center">绿灯</td>
-</tr>
-<tr>
-<td style="text-align:center">Q0A~Q0D</td>
-<td style="text-align:center">低位的数据输出，这四个输出接到数码管的四个引脚上</td>
-</tr>
-<tr>
-<td style="text-align:center">Q1A~Q1D</td>
-<td style="text-align:center">高位的数据输出，这四个输出接到数码管的四个引脚上</td>
-</tr>
-</tbody>
-</table>
-<p>好，到这里，基本上结束了，来说说这次的感想。硬件大作业设置的目的就是让我们平常一直打代码的学生也学习一下底层的硬件知识，不能只停留在软件和代码上，而且也间接的让我们复习一下数字逻辑的知识。这次的任务我认为既不是很简单也不是很难，主要是思维上的转变，因为经常是用代码的逻辑把想的东西表达出来，但是在硬件上我的思路就不是很清晰，不知道到底用哪个元件，哪个芯片，芯片的引脚都有什么功能，这些知识对我来说其实是比较薄弱的地方，当我实在没有办法前进的时候，通过上网查资料以及通过同学的帮助，完成之后回头看这个题目也不是很难，关键就是思路的问题。这次的任务让我明白的认识到了自己的不足之处，因为计算机这个学科不仅仅是打代码这么简单，同时还要对硬件方面做一些了解。通过这次大作业的训练，从最开始的选择元件再对电路的一步步的调试修改错误再到最后的成功，从最开始的跃跃欲试到绝望再到最后的成就感，让我发现了对硬件知识的缺乏。所以在以后的学习中，还需要继续努力，不过在这次与同学讨论的过程中让我收获不少知识，让我明白了ram具体怎么设置、元件引脚的功能以及逻辑怎么用电路表达出来。作为计算机的学生，应该既具备很强的代码能力也要有充足的硬件知识。</p>
-
-          
+<li>显示一个十字路口灯的情况
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/05/2018暑期硬件大作业——交通灯控制器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

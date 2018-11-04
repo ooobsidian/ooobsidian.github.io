@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-11-04T08:54:23.039Z</updated>
+  <updated>2018-11-04T09:01:36.718Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ooobsidian.github.io/2018/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"/>
     <id>http://ooobsidian.github.io/2018/11/04/汇编语言复习/</id>
     <published>2018-11-04T06:03:41.000Z</published>
-    <updated>2018-11-04T08:54:23.039Z</updated>
+    <updated>2018-11-04T09:01:36.718Z</updated>
     
     <content type="html"><![CDATA[<p>我们来整理一下这学期汇编语言所学的知识（要挂了呀…)<br><a id="more"></a></p>
 <h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
@@ -61,6 +61,8 @@
 </li>
 <li><p>PF（parity flag）奇偶标志。当操作数中1的个数为偶数时为1，否则为0。</p>
 </li>
+</ul>
+<ul>
 <li><p>ZF（zero flag）零标志。当运算结果为0时为1，否则为0。</p>
 </li>
 <li><p>SF（sign flag）符号标志。记录了运算结果的符号，结果为负时为1，否则为0。</p>

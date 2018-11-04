@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-11-04T09:01:36.718Z</updated>
+  <updated>2018-11-04T16:10:29.938Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,9 +20,12 @@
     <link href="http://ooobsidian.github.io/2018/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"/>
     <id>http://ooobsidian.github.io/2018/11/04/汇编语言复习/</id>
     <published>2018-11-04T06:03:41.000Z</published>
-    <updated>2018-11-04T09:01:36.718Z</updated>
+    <updated>2018-11-04T16:10:29.938Z</updated>
     
-    <content type="html"><![CDATA[<p>我们来整理一下这学期汇编语言所学的知识（要挂了呀…)<br><a id="more"></a></p>
+    <content type="html"><![CDATA[<blockquote>
+<p>让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)</p>
+</blockquote>
+<a id="more"></a>
 <h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
 <h1 id="第2章-80x86计算机组织"><a href="#第2章-80x86计算机组织" class="headerlink" title="第2章 80x86计算机组织"></a>第2章 80x86计算机组织</h1><h2 id="寄存器组"><a href="#寄存器组" class="headerlink" title="寄存器组"></a>寄存器组</h2><h3 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h3><p>通用寄存器都可以以字（16位）或者字节（8位）的形式访问。</p>
 <ul>
@@ -77,12 +80,19 @@
 <h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg" alt="段寄存器"></p>
 <p>段寄存器也是一种专用寄存器，它们主要用来存储器寻址，用来直接或间接的存放段地址。常见的有代码段（code segment）、数据段（data segment）、堆栈段（stack segment）和附加段（extra segment）。</p>
 <p>其中FS、GS以及所有32位寄存器是从80386 CPU开始引入的。他们也是属于附加的数据段。</p>
-<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>未完待续。。。</p>
+<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>存储器的信息是以<strong>字节</strong>为单位的，每一个字节单元只有一个<strong>惟一的</strong>存储器地址，称为<strong>物理地址</strong>。<br>一个存储单元中存放的信息称为该存储单元的内容。<br>对于字节数据而言，数据在内存中连续存放，对于字数据而言，要占有两个字节，则存放时低位字节存入低地址，高位字节存入高地址。例如1234H，在内存中存储为34 12，因为内存中低地址靠前（左），高地址靠后（右）。  </p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww6f5un9sj309n0b2ta5.jpg" alt=""><br>例如上图，字节12340H、12341H的内容分别为：12H和34H；字12340H、12341H的内容分别为：3412H和5634H；双字12340H、12341H的内容分别为：78563412H和90785634H。</p>
+<h3 id="物理地址与逻辑地址"><a href="#物理地址与逻辑地址" class="headerlink" title="物理地址与逻辑地址"></a>物理地址与逻辑地址</h3><p>物理地址：内存单元的实际地址，也就是出现在地址总线上的地址。<br>逻辑地址：或称分段地址，记作 段地址: 段内偏移地址。<br>有效地址：将存储单元的实际地址与其所在段的段地址之间的距离称为段内偏移量(EA，Effective Address 或Offset)。<br>系统采用下列方法将逻辑地址自动转换为20位的物理地址：<strong>物理地址 = 段地址 × 16 + 偏移地址</strong>  </p>
+<h3 id="实模式存储器寻址"><a href="#实模式存储器寻址" class="headerlink" title="实模式存储器寻址"></a>实模式存储器寻址</h3><p>实模式下允许最大寻址空间为1MB，因为8086的地址总线宽度为20位，则$2^{20}=1024K=1M$，所以最大寻址空间为1MB。<br>（20位物理地址由16位段地址和16位偏移地址组成，段地址是指每一段的起始地址，由于它必须是小段的首地址，所以其低4位一定时0，这样，就可以规定段地址只取段起始地址的高16位值）。括号里的不想看，简而言之就是下图的计算方法，上面也提到了。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww6kejqsvj308707k0t3.jpg" alt="物理地址 = 段地址 × 16 + 偏移地址"><br>也就是说，把段地址左移4位加上偏移地址就形成了物理地址。（一般给出的地址都是16进制的形式，这里的4位是指2进制的4位，所以对于16进制而言，只需要段地址后加一个0，一个0相当于二进制的0000，也就是向左移4位）。<br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>重要的事情说三遍！！！</strong></p>
+<h1 id="第3章-80x86的指令系统和寻址方式"><a href="#第3章-80x86的指令系统和寻址方式" class="headerlink" title="第3章 80x86的指令系统和寻址方式"></a>第3章 80x86的指令系统和寻址方式</h1><p>……</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;我们来整理一下这学期汇编语言所学的知识（要挂了呀…)&lt;br&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)&lt;/p&gt;
+&lt;/blockquote&gt;
     
     </summary>
     

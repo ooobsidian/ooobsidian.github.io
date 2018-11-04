@@ -89,7 +89,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="ACM,数据结构,POJ," />
+  <meta name="keywords" content="技术,汇编语言," />
 
 
 
@@ -107,18 +107,21 @@
 
 
 
-<meta name="description" content="题目DescriptionAdvanced Cargo Movement, Ltd. uses trucks of different types. Some trucks are used for vegetable delivery, other for furniture, or for bricks. The company has its own code describing each">
-<meta name="keywords" content="ACM,数据结构,POJ">
+<meta name="description" content="我们来整理一下这学期汇编语言所学的知识（要挂了呀。。） 第1章 基础知识其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。 第2章 80x86计算机组织寄存器组通用寄存器通用寄存器都可以以字（16位）或者字节（8位）的形式访问。  AX（accumulator）  主要作为累加器使用，它是算术运算的主要寄存器。">
+<meta name="keywords" content="技术,汇编语言">
 <meta property="og:type" content="article">
-<meta property="og:title" content="POJ 1789 Truck History (Prim算法求最小生成树)">
-<meta property="og:url" content="http://ooobsidian.github.io/2017/08/08/POJ-1789/index.html">
+<meta property="og:title" content="汇编语言复习">
+<meta property="og:url" content="http://ooobsidian.github.io/2018/11/04/汇编语言复习/index.html">
 <meta property="og:site_name" content="LRX&#39;s Blog">
-<meta property="og:description" content="题目DescriptionAdvanced Cargo Movement, Ltd. uses trucks of different types. Some trucks are used for vegetable delivery, other for furniture, or for bricks. The company has its own code describing each">
+<meta property="og:description" content="我们来整理一下这学期汇编语言所学的知识（要挂了呀。。） 第1章 基础知识其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。 第2章 80x86计算机组织寄存器组通用寄存器通用寄存器都可以以字（16位）或者字节（8位）的形式访问。  AX（accumulator）  主要作为累加器使用，它是算术运算的主要寄存器。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-08T07:11:52.000Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg">
+<meta property="og:updated_time" content="2018-11-04T07:19:28.369Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="POJ 1789 Truck History (Prim算法求最小生成树)">
-<meta name="twitter:description" content="题目DescriptionAdvanced Cargo Movement, Ltd. uses trucks of different types. Some trucks are used for vegetable delivery, other for furniture, or for bricks. The company has its own code describing each">
+<meta name="twitter:title" content="汇编语言复习">
+<meta name="twitter:description" content="我们来整理一下这学期汇编语言所学的知识（要挂了呀。。） 第1章 基础知识其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。 第2章 80x86计算机组织寄存器组通用寄存器通用寄存器都可以以字（16位）或者字节（8位）的形式访问。  AX（accumulator）  主要作为累加器使用，它是算术运算的主要寄存器。">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg">
 
 
 
@@ -147,13 +150,13 @@
 
 
 
-  <link rel="canonical" href="http://ooobsidian.github.io/2017/08/08/POJ-1789/"/>
+  <link rel="canonical" href="http://ooobsidian.github.io/2018/11/04/汇编语言复习/"/>
 
 
 
 
 
-  <title>POJ 1789 Truck History (Prim算法求最小生成树) | LRX's Blog</title>
+  <title>汇编语言复习 | LRX's Blog</title>
   
 
 
@@ -344,7 +347,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2017/08/08/POJ-1789/">
+    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2018/11/04/汇编语言复习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="obsidian">
@@ -361,7 +364,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">POJ 1789 Truck History (Prim算法求最小生成树)</h1>
+          <h1 class="post-title" itemprop="name headline">汇编语言复习</h1>
         
 
         <div class="post-meta">
@@ -373,8 +376,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-08T15:10:26+08:00">
-                2017-08-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T14:03:41+08:00">
+                2018-11-04
               </time>
             
 
@@ -393,8 +396,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/08/POJ-1789/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/08/08/POJ-1789/" itemprop="commentsCount"></span>
+                <a href="/2018/11/04/汇编语言复习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/11/04/汇编语言复习/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -419,7 +422,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  826
+                  1,039
                 </span>
               
 
@@ -435,7 +438,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  5
+                  4
                 </span>
               
             </div>
@@ -456,19 +459,60 @@
       
 
       
-        <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/10534/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Advanced Cargo Movement, Ltd. uses trucks of different types. Some trucks are used for vegetable delivery, other for furniture, or for bricks. The company has its own code describing each type of a truck. The code is simply a string of exactly seven lowercase letters (each letter on each position has a very special meaning but that is unimportant for this task). At the beginning of company’s history, just a single truck type was used but later other types were derived from it, then from the new types another types were derived, and so on.<br> <a id="more"></a><br>Today, ACM is rich enough to pay historians to study its history. One thing historians tried to find out is so called derivation plan – i.e. how the truck types were derived. They defined the distance of truck types as the number of positions with different letters in truck type codes. They also assumed that each truck type was derived from exactly one other truck type (except for the first truck type which was not derived from any other type). The quality of a derivation plan was then defined as<br>$$\frac{1}{\sum_{(t_o,t_d)}d(t_o,t_d)}$$</p>
-<p>where the sum goes over all pairs of types in the derivation plan such that t o is the original type and t d the type derived from it and $d(t_o,t_d)$ is the distance of the types.<br>Since historians failed, you are to write a program to help them. Given the codes of truck types, your program should find the highest possible quality of a derivation plan.</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input consists of several test cases. Each test case begins with a line containing the number of truck types, $N$ , $2 \leq N \leq 2000$. Each of the following $N$ lines of input contains one truck type code (a string of seven lowercase letters). You may assume that the codes uniquely describe the trucks, i.e., no two of these $N$ lines are the same. The input is terminated with zero at the place of number of truck types.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case, your program should output the text “The highest possible quality is $\frac{1}{Q}$ .”, where $\frac{1}{Q}$ is the quality of the best derivation plan.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">4</div><div class="line">aaaaaaa</div><div class="line">baaaaaa</div><div class="line">abaaaaa</div><div class="line">aabaaaa</div><div class="line">0</div></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The highest possible quality is 1/3.</div></pre></td></tr></table></figure>
-<hr>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>历史上，曾用 $7$ 个小写字母来表示每种truck的型号，每两种型号之间的差距为字母串中不同字母的个数。现在给出 $n$ 种不同型号的truck，问怎样使<br>$\frac{1}{\sum_{(t_o,t_d)}d(t_o,t_d)}$ 的值最小。（即找到一条连接所有truck的最短路径。典型的最小生成树的问题，$Prim$ 算法适合稠密图，$Kruskal$ 算法适合稀疏图，可以使用 $Prim$ 和 $kruskal$ 两种方法。该题是稠密的图。</p>
-<hr>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>输入的字符串需要转换成邻接矩阵，然后直接套 $Prim$ 模板就好啦~</p>
-<hr>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1e9+7</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(a,x) memset(a,x,sizeof(a))</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">2010</span>;</div><div class="line"><span class="keyword">bool</span> vis[MAXN];</div><div class="line"><span class="keyword">int</span> lowc[MAXN];</div><div class="line"><span class="keyword">int</span> <span class="built_in">map</span>[MAXN][MAXN];</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">Prim</span><span class="params">(<span class="keyword">int</span> cost[][MAXN],<span class="keyword">int</span> n)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> ans=<span class="number">0</span>;</div><div class="line">    clr(vis,<span class="number">0</span>);</div><div class="line">    vis[<span class="number">0</span>]=<span class="number">1</span>;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">    &#123;</div><div class="line">        lowc[i]=cost[<span class="number">0</span>][i];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;n;i++)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> minc=INF;</div><div class="line">        <span class="keyword">int</span> p=<span class="number">-1</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</div><div class="line">            <span class="keyword">if</span>(!vis[j]&amp;&amp;minc&gt;lowc[j])</div><div class="line">            &#123;</div><div class="line">                minc=lowc[j];</div><div class="line">                p=j;</div><div class="line">            &#125;</div><div class="line">        <span class="keyword">if</span>(minc==INF)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">        &#125;</div><div class="line">        vis[p]=<span class="number">1</span>;</div><div class="line">        ans+=minc;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;n;j++)</div><div class="line">            <span class="keyword">if</span>(!vis[j]&amp;&amp;lowc[j]&gt;cost[p][j])</div><div class="line">                lowc[j]=cost[p][j];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ans;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">int</span> t;</div><div class="line">    <span class="keyword">char</span> str[MAXN][<span class="number">8</span>];</div><div class="line">    <span class="keyword">int</span> edge;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;t,t)</div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="built_in">scanf</span>(<span class="string">"%s"</span>,&amp;str[i]);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;t;i++)  <span class="comment">//接下来就是建立邻接矩阵</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;t;j++)  <span class="comment">//这里wa了好久</span></div><div class="line">            &#123;</div><div class="line">                edge=<span class="number">0</span>;</div><div class="line">                <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;<span class="number">7</span>;k++)</div><div class="line">                &#123;</div><div class="line">                    <span class="keyword">if</span>(str[i][k]!=str[j][k])</div><div class="line">                        edge++;</div><div class="line">                    <span class="built_in">map</span>[i][j]=<span class="built_in">map</span>[j][i]=edge;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> ans;</div><div class="line">        ans=Prim(<span class="built_in">map</span>,t);  <span class="comment">//Prim算法</span></div><div class="line">        <span class="built_in">printf</span>(<span class="string">"The highest possible quality is 1/%d.\n"</span>,ans);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>PS：太菜，太菜了哇…</p>
+        <p>我们来整理一下这学期汇编语言所学的知识（要挂了呀。。）</p>
+<h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
+<h1 id="第2章-80x86计算机组织"><a href="#第2章-80x86计算机组织" class="headerlink" title="第2章 80x86计算机组织"></a>第2章 80x86计算机组织</h1><h2 id="寄存器组"><a href="#寄存器组" class="headerlink" title="寄存器组"></a>寄存器组</h2><h3 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h3><p>通用寄存器都可以以字（16位）或者字节（8位）的形式访问。</p>
+<ul>
+<li>AX（accumulator）</li>
+</ul>
+<p>主要作为累加器使用，它是算术运算的主要寄存器。另外，所有的I/O指令都使用这一寄存器与外部设备传送信息。（例如我们要在屏幕上输出一个字符的时候，我们就要把输出字符的指令02H放在AL寄存器中）</p>
+<ul>
+<li>BX（base）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外在计算存储器地址时，它经常用作基址寄存器。</p>
+<ul>
+<li>CX（count）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外常用来保存计数值。（例如在LOOP时，每循环一次CX就要减一，还有在移位操作时，如果移动的位数不是1位，就要将移动的次数保存在CX寄存器中）。</p>
+<ul>
+<li>DX（data）</li>
+</ul>
+<p>可以作为通用寄存器使用。一般在作双字运算时把DX和AX组合在一起存放一个双字长数，DX用来保存高位字。此外，对某些I/O操作，DX可用来存放I/O的端口地址。（例如我们要在屏幕上输出一个字符的时候，就要将所输出的字符放在DL中，输出字符串的时候，就要把字符串的偏移地址放在DX中）。</p>
+<p>AL与AH、BL与BH、CL与CH、DL与DH分别对应于AX、BX、CX和DX的低8位与高8位。</p>
+<p>AX、BX、CX、DX、SI、DI、BP和SP分别对应于EAX、EBX、ECX、EDX、ESI、EDI、EBP和ESP的低16位。</p>
+<h3 id="专用寄存器"><a href="#专用寄存器" class="headerlink" title="专用寄存器"></a>专用寄存器</h3><ul>
+<li>IP（instruction pointer）</li>
+</ul>
+<p>作为指令指针寄存器，它用来存放代码段中的偏移地址。在程序的运行的过程中，<strong><em>它始终指向下一条指令的首地址，它与段寄存器CS联用确定下一条指令的物理地址。</em></strong></p>
+<ul>
+<li>SP</li>
+</ul>
+<p>作为堆栈寄存器，它用来存放栈顶的偏移偏移地址。<strong>（注意：栈顶指针在有数据入栈的时候，会减小，有数据出栈的时候，会增加）</strong></p>
+<ul>
+<li>FLAGS</li>
+</ul>
+<p>称为标志寄存器，这是一个存放条件码、控制标志和系统标志的寄存器。其中有几个比较重要的标志位需要记忆。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg" alt="标志寄存器"></p>
+<ul>
+<li><p>CF（carry flag）进位标志。它记录了从最高有效位产生的进位值，减法运算时是借位，以及循环移位时。当最高有效位有进位时为1，否则为0。</p>
+</li>
+<li><p>PF（parity flag）奇偶标志。当操作数中1的个数为偶数时为1，否则为0。</p>
+</li>
+<li><p>ZF（zero flag）零标志。当运算结果为0时为1，否则为0。</p>
+</li>
+<li><p>SF（sign flag）符号标志。记录了运算结果的符号，结果为负时为1，否则为0。</p>
+</li>
+<li><p>OF（overflow flag）溢出标志。当操作数超出了机器能表示的范围时为1，否则为0。</p>
+</li>
+<li><p>DL（direction flag）控制标志位为方向标志。主要在串处理时使用，当DF为1时，每次操作之后都会使变址寄存器SI、DI减小，从而从高地址向低地址处理。反之，当DF为0时，每次操作后会使SI、DI变大。</p>
+</li>
+<li><p>IF（interrupt flag）中断标志。当IF为1时，可允许CPU响应可屏蔽中断请求，否则关闭请求，这在第8章中会涉及到。</p>
+</li>
+</ul>
+<h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg" alt="段寄存器"></p>
+<p>段寄存器也是一种专用寄存器，它们主要用来存储器寻址，用来直接或间接的存放段地址。常见的有代码段（code segment）、数据段（data segment）、堆栈段（stack segment）和附加段（extra segment）。</p>
+<p>其中FS、GS以及所有32位寄存器是从80386 CPU开始引入的。他们也是属于附加的数据段。</p>
+<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>未完待续。。。</p>
 
       
     </div>
@@ -542,7 +586,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://ooobsidian.github.io/2017/08/08/POJ-1789/" title="POJ 1789 Truck History (Prim算法求最小生成树)">http://ooobsidian.github.io/2017/08/08/POJ-1789/</a>
+    <a href="http://ooobsidian.github.io/2018/11/04/汇编语言复习/" title="汇编语言复习">http://ooobsidian.github.io/2018/11/04/汇编语言复习/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -557,11 +601,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ACM/" rel="tag"><i class="fa fa-tag"></i> ACM</a>
+            <a href="/tags/技术/" rel="tag"><i class="fa fa-tag"></i> 技术</a>
           
-            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i> 数据结构</a>
-          
-            <a href="/tags/POJ/" rel="tag"><i class="fa fa-tag"></i> POJ</a>
+            <a href="/tags/汇编语言/" rel="tag"><i class="fa fa-tag"></i> 汇编语言</a>
           
         </div>
       
@@ -574,8 +616,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/07/POJ-3259/" rel="next" title="POJ 3259 Wormholes (Bellman-Ford判断负环)">
-                <i class="fa fa-chevron-left"></i> POJ 3259 Wormholes (Bellman-Ford判断负环)
+              <a href="/2018/07/05/2018暑期硬件大作业——交通灯控制器/" rel="next" title="2018暑期硬件大作业——交通灯控制器">
+                <i class="fa fa-chevron-left"></i> 2018暑期硬件大作业——交通灯控制器
               </a>
             
           </div>
@@ -583,10 +625,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/08/POJ-1125-Stockbroker-Grapevine-Floyd/" rel="prev" title="POJ 1125 Stockbroker Grapevine (Floyd)">
-                POJ 1125 Stockbroker Grapevine (Floyd) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -746,7 +784,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#题目"><span class="nav-number">1.</span> <span class="nav-text">题目</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题意"><span class="nav-number">2.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-基础知识"><span class="nav-number">1.</span> <span class="nav-text">第1章 基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-80x86计算机组织"><span class="nav-number">2.</span> <span class="nav-text">第2章 80x86计算机组织</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器组"><span class="nav-number">2.1.</span> <span class="nav-text">寄存器组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用寄存器"><span class="nav-number">2.1.1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专用寄存器"><span class="nav-number">2.1.2.</span> <span class="nav-text">专用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段寄存器"><span class="nav-number">2.1.3.</span> <span class="nav-text">段寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器"><span class="nav-number">2.2.</span> <span class="nav-text">存储器</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -920,7 +958,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 94841, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 94841, xid: "2017/08/08/POJ-1789/"});
+		_hcwp.push({widget:"Stream", widget_id: 94841, xid: "2018/11/04/汇编语言复习/"});
 		
 
 		(function() {

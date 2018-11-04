@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-07-05T15:37:03.452Z</updated>
+  <updated>2018-11-04T07:19:28.369Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -14,6 +14,83 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>汇编语言复习</title>
+    <link href="http://ooobsidian.github.io/2018/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"/>
+    <id>http://ooobsidian.github.io/2018/11/04/汇编语言复习/</id>
+    <published>2018-11-04T06:03:41.000Z</published>
+    <updated>2018-11-04T07:19:28.369Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们来整理一下这学期汇编语言所学的知识（要挂了呀。。）</p>
+<h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
+<h1 id="第2章-80x86计算机组织"><a href="#第2章-80x86计算机组织" class="headerlink" title="第2章 80x86计算机组织"></a>第2章 80x86计算机组织</h1><h2 id="寄存器组"><a href="#寄存器组" class="headerlink" title="寄存器组"></a>寄存器组</h2><h3 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h3><p>通用寄存器都可以以字（16位）或者字节（8位）的形式访问。</p>
+<ul>
+<li>AX（accumulator）</li>
+</ul>
+<p>主要作为累加器使用，它是算术运算的主要寄存器。另外，所有的I/O指令都使用这一寄存器与外部设备传送信息。（例如我们要在屏幕上输出一个字符的时候，我们就要把输出字符的指令02H放在AL寄存器中）</p>
+<ul>
+<li>BX（base）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外在计算存储器地址时，它经常用作基址寄存器。</p>
+<ul>
+<li>CX（count）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外常用来保存计数值。（例如在LOOP时，每循环一次CX就要减一，还有在移位操作时，如果移动的位数不是1位，就要将移动的次数保存在CX寄存器中）。</p>
+<ul>
+<li>DX（data）</li>
+</ul>
+<p>可以作为通用寄存器使用。一般在作双字运算时把DX和AX组合在一起存放一个双字长数，DX用来保存高位字。此外，对某些I/O操作，DX可用来存放I/O的端口地址。（例如我们要在屏幕上输出一个字符的时候，就要将所输出的字符放在DL中，输出字符串的时候，就要把字符串的偏移地址放在DX中）。</p>
+<p>AL与AH、BL与BH、CL与CH、DL与DH分别对应于AX、BX、CX和DX的低8位与高8位。</p>
+<p>AX、BX、CX、DX、SI、DI、BP和SP分别对应于EAX、EBX、ECX、EDX、ESI、EDI、EBP和ESP的低16位。</p>
+<h3 id="专用寄存器"><a href="#专用寄存器" class="headerlink" title="专用寄存器"></a>专用寄存器</h3><ul>
+<li>IP（instruction pointer）</li>
+</ul>
+<p>作为指令指针寄存器，它用来存放代码段中的偏移地址。在程序的运行的过程中，<strong><em>它始终指向下一条指令的首地址，它与段寄存器CS联用确定下一条指令的物理地址。</em></strong></p>
+<ul>
+<li>SP</li>
+</ul>
+<p>作为堆栈寄存器，它用来存放栈顶的偏移偏移地址。<strong>（注意：栈顶指针在有数据入栈的时候，会减小，有数据出栈的时候，会增加）</strong></p>
+<ul>
+<li>FLAGS</li>
+</ul>
+<p>称为标志寄存器，这是一个存放条件码、控制标志和系统标志的寄存器。其中有几个比较重要的标志位需要记忆。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg" alt="标志寄存器"></p>
+<ul>
+<li><p>CF（carry flag）进位标志。它记录了从最高有效位产生的进位值，减法运算时是借位，以及循环移位时。当最高有效位有进位时为1，否则为0。</p>
+</li>
+<li><p>PF（parity flag）奇偶标志。当操作数中1的个数为偶数时为1，否则为0。</p>
+</li>
+<li><p>ZF（zero flag）零标志。当运算结果为0时为1，否则为0。</p>
+</li>
+<li><p>SF（sign flag）符号标志。记录了运算结果的符号，结果为负时为1，否则为0。</p>
+</li>
+<li><p>OF（overflow flag）溢出标志。当操作数超出了机器能表示的范围时为1，否则为0。</p>
+</li>
+<li><p>DL（direction flag）控制标志位为方向标志。主要在串处理时使用，当DF为1时，每次操作之后都会使变址寄存器SI、DI减小，从而从高地址向低地址处理。反之，当DF为0时，每次操作后会使SI、DI变大。</p>
+</li>
+<li><p>IF（interrupt flag）中断标志。当IF为1时，可允许CPU响应可屏蔽中断请求，否则关闭请求，这在第8章中会涉及到。</p>
+</li>
+</ul>
+<h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg" alt="段寄存器"></p>
+<p>段寄存器也是一种专用寄存器，它们主要用来存储器寻址，用来直接或间接的存放段地址。常见的有代码段（code segment）、数据段（data segment）、堆栈段（stack segment）和附加段（extra segment）。</p>
+<p>其中FS、GS以及所有32位寄存器是从80386 CPU开始引入的。他们也是属于附加的数据段。</p>
+<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>未完待续。。。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们来整理一下这学期汇编语言所学的知识（要挂了呀。。）&lt;/p&gt;
+&lt;h1 id=&quot;第1章-基础知识&quot;&gt;&lt;a href=&quot;#第1章-基础知识&quot; class=&quot;headerlink&quot; title=&quot;第1章 基础知识&quot;&gt;&lt;/a&gt;第1章 基础知识&lt;/h1&gt;&lt;p&gt;其中提到了二进制数、八
+    
+    </summary>
+    
+    
+      <category term="技术" scheme="http://ooobsidian.github.io/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+      <category term="汇编语言" scheme="http://ooobsidian.github.io/tags/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"/>
+    
+  </entry>
   
   <entry>
     <title>2018暑期硬件大作业——交通灯控制器</title>
@@ -1244,43 +1321,6 @@
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HDU 1252 Hike on a Graph (BFS)</title>
-    <link href="http://ooobsidian.github.io/2017/08/09/HDU-1252-Hike-on-a-Graph-BFS/"/>
-    <id>http://ooobsidian.github.io/2017/08/09/HDU-1252-Hike-on-a-Graph-BFS/</id>
-    <published>2017-08-08T16:06:02.000Z</published>
-    <updated>2017-08-08T16:08:22.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/40580/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>“Hike on a Graph” is a game that is played on a board on which an undirected graph is drawn. The graph is complete and has all loops, i.e. for any two locations there is exactly one arrow between them. The arrows are coloured. There are three players, and each of them has a piece. At the beginning of the game, the three pieces are in fixed locations on the graph. In turn, the players may do a move. A move consists of moving one’s own piece along an arrow to a new location on the board. The following constraint is imposed on this: the piece may only be moved along arrows of the same colour as the arrow between the two opponents’ pieces.<br><a id="more"></a><br>In the sixties (“make love not war”) a one-person variant of the game emerged. In this variant one person moves all the three pieces, not necessarily one after the other, but of course only one at a time. Goal of this game is to get all pieces onto the same location, using as few moves as possible. Find out the smallest number of moves that is necessary to get all three pieces onto the same location, for a given board layout and starting positions.</p>
-<p><img src="http://acm.hdu.edu.cn/data/images/c15-1002-1.gif" alt=""></p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>The input file contains several test cases. Each test case starts with the number $n$ . Input is terminated by $n=0$ . Otherwise, $1 \leq n \leq 50$ . Then follow three integers $p_1$ , $p_2$ , $p_3$ with $1 \leq pi\leq n$ denoting the starting locations of the game pieces. The colours of the arrows are given next as a $m×m$ matrix of whitespace-separated lower-case letters. The element mij denotes the colour of the arrow between the locations $i$ and $j$ . Since the graph is undirected, you can assume the matrix to be symmetrical.</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each test case output on a single line the minimum number of moves required to get all three pieces onto the same location, or the word “impossible” if that is not possible for the given board and starting locations.</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">3 1 2 3</div><div class="line">r b r</div><div class="line">b b b</div><div class="line">r b r</div><div class="line">2 1 2 2</div><div class="line">y g</div><div class="line">g y</div><div class="line">0</div></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2</div><div class="line">impossible</div></pre></td></tr></table></figure>
-<h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=University+of+Ulm+Local+Contest+2000&amp;source=1&amp;searchmode=source" target="_blank" rel="external">University of Ulm Local Contest 2000</a></p>
-<hr>
-<h1 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h1><p>给你 $n$ 个点 $(1 \leq n \leq 50)$ 构成的完全无向图（任意两点之间都存在边包括自己到自己的边 ），三个棋子的起始位置，再给出每个点到另一个点的或者到自己的边的颜色，有 $r,g,b$ 三种颜色，分别代表 $red,green,blue$，不是重点。一个棋子从一个点走到另一个点的要求是：<strong>从该点走到另一个点的这条边的颜色只能和另外两个棋子组成的边颜色相同</strong> ，问你三个棋子走到同一个点最少需要多少步。</p>
-<hr>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>按照要求进行 $bfs$ .</p>
-<hr>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stack&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;vector&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;set&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;map&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdlib&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;climits&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iomanip&gt;</span></span></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"><span class="keyword">typedef</span> <span class="keyword">long</span> <span class="keyword">long</span> ll;</div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1e9+7</span></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> clr(a,x) memset(a,x,sizeof(a))</span></div><div class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-6</span>;</div><div class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN=<span class="number">60</span>;</div><div class="line"><span class="keyword">int</span> n,p1,p2,p3;</div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span></span></div><div class="line"><span class="class">&#123;</span></div><div class="line">    <span class="keyword">int</span> x,y,z;</div><div class="line">    node(<span class="keyword">int</span> _x,<span class="keyword">int</span> _y,<span class="keyword">int</span> _z)</div><div class="line">    &#123;</div><div class="line">        x=_x;</div><div class="line">        y=_y;</div><div class="line">        z=_z;</div><div class="line">    &#125;                    <span class="comment">//构造函数</span></div><div class="line">&#125;;</div><div class="line"><span class="keyword">char</span> G[MAXN][MAXN];</div><div class="line"><span class="keyword">int</span> vis[MAXN][MAXN][MAXN];  <span class="comment">//表示三个棋子所在位置步数</span></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    clr(vis,<span class="number">0</span>);  <span class="comment">//未访问过的一种状态置为0</span></div><div class="line">    <span class="built_in">queue</span> &lt;node&gt; q;</div><div class="line">    q.push(node(p1,p2,p3));  <span class="comment">//初始p1,p2,p3的步数为1</span></div><div class="line">    vis[p1][p2][p3]=<span class="number">1</span>;  <span class="comment">//最后答案要减一</span></div><div class="line">    <span class="keyword">while</span>(!q.empty())</div><div class="line">    &#123;</div><div class="line">        node temp=q.front();</div><div class="line">        <span class="keyword">int</span> x=temp.x;</div><div class="line">        <span class="keyword">int</span> y=temp.y;</div><div class="line">        <span class="keyword">int</span> z=temp.z;</div><div class="line">        q.pop();</div><div class="line">        <span class="keyword">if</span>(x==y&amp;&amp;y==z)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">return</span> vis[x][y][z];</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(vis[i][y][z]==<span class="number">0</span>&amp;&amp;G[x][i]==G[y][z]) <span class="comment">//按题意</span></div><div class="line">            &#123;</div><div class="line">                vis[i][y][z]=vis[x][y][z]+<span class="number">1</span>;</div><div class="line">                q.push(node(i,y,z));</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(vis[x][i][z]==<span class="number">0</span>&amp;&amp;G[y][i]==G[x][z])</div><div class="line">            &#123;</div><div class="line">                vis[x][i][z]=vis[x][y][z]+<span class="number">1</span>;</div><div class="line">                q.push(node(x,i,z));</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(vis[x][y][i]==<span class="number">0</span>&amp;&amp;G[z][i]==G[x][y])</div><div class="line">            &#123;</div><div class="line">                vis[x][y][i]=vis[x][y][z]+<span class="number">1</span>;</div><div class="line">                q.push(node(x,y,i));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n,n)</div><div class="line">    &#123;</div><div class="line">        <span class="built_in">cin</span>&gt;&gt;p1&gt;&gt;p2&gt;&gt;p3;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;i++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;=n;j++)</div><div class="line">            &#123;</div><div class="line">                <span class="built_in">cin</span>&gt;&gt;G[i][j];</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> ans=bfs();</div><div class="line">        <span class="keyword">if</span>(ans==<span class="number">-1</span>)</div><div class="line">            <span class="built_in">cout</span>&lt;&lt;<span class="string">"impossible"</span>&lt;&lt;<span class="built_in">endl</span>;</div><div class="line">        <span class="keyword">else</span></div><div class="line">            <span class="built_in">cout</span>&lt;&lt;ans<span class="number">-1</span>&lt;&lt;<span class="built_in">endl</span>;  <span class="comment">//答案减一</span></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;&lt;a href=&quot;https://vjudge.net/problem/40580/origin&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;题目&lt;/a&gt;&lt;/h1&gt;&lt;h2 id=&quot;Description&quot;&gt;&lt;a href=&quot;#Description&quot; class=&quot;headerlink&quot; title=&quot;Description&quot;&gt;&lt;/a&gt;Description&lt;/h2&gt;&lt;p&gt;“Hike on a Graph” is a game that is played on a board on which an undirected graph is drawn. The graph is complete and has all loops, i.e. for any two locations there is exactly one arrow between them. The arrows are coloured. There are three players, and each of them has a piece. At the beginning of the game, the three pieces are in fixed locations on the graph. In turn, the players may do a move. A move consists of moving one’s own piece along an arrow to a new location on the board. The following constraint is imposed on this: the piece may only be moved along arrows of the same colour as the arrow between the two opponents’ pieces.&lt;br&gt;
-    
-    </summary>
-    
-    
-      <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
-    
-      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
-    
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   

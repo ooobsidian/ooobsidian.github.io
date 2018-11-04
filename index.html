@@ -344,6 +344,224 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2018/11/04/汇编语言复习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="obsidian">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LRX's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/04/汇编语言复习/" itemprop="url">汇编语言复习</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-04T14:03:41+08:00">
+                2018-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/04/汇编语言复习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2018/11/04/汇编语言复习/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                  <span class="post-meta-divider">|</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计</span>
+                
+                <span title="字数统计">
+                  1,039
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body han-init-context" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>我们来整理一下这学期汇编语言所学的知识（要挂了呀。。）</p>
+<h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
+<h1 id="第2章-80x86计算机组织"><a href="#第2章-80x86计算机组织" class="headerlink" title="第2章 80x86计算机组织"></a>第2章 80x86计算机组织</h1><h2 id="寄存器组"><a href="#寄存器组" class="headerlink" title="寄存器组"></a>寄存器组</h2><h3 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h3><p>通用寄存器都可以以字（16位）或者字节（8位）的形式访问。</p>
+<ul>
+<li>AX（accumulator）</li>
+</ul>
+<p>主要作为累加器使用，它是算术运算的主要寄存器。另外，所有的I/O指令都使用这一寄存器与外部设备传送信息。（例如我们要在屏幕上输出一个字符的时候，我们就要把输出字符的指令02H放在AL寄存器中）</p>
+<ul>
+<li>BX（base）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外在计算存储器地址时，它经常用作基址寄存器。</p>
+<ul>
+<li>CX（count）</li>
+</ul>
+<p>可以作为通用寄存器使用。此外常用来保存计数值。（例如在LOOP时，每循环一次CX就要减一，还有在移位操作时，如果移动的位数不是1位，就要将移动的次数保存在CX寄存器中）。</p>
+<ul>
+<li>DX（data）</li>
+</ul>
+<p>可以作为通用寄存器使用。一般在作双字运算时把DX和AX组合在一起存放一个双字长数，DX用来保存高位字。此外，对某些I/O操作，DX可用来存放I/O的端口地址。（例如我们要在屏幕上输出一个字符的时候，就要将所输出的字符放在DL中，输出字符串的时候，就要把字符串的偏移地址放在DX中）。</p>
+<p>AL与AH、BL与BH、CL与CH、DL与DH分别对应于AX、BX、CX和DX的低8位与高8位。</p>
+<p>AX、BX、CX、DX、SI、DI、BP和SP分别对应于EAX、EBX、ECX、EDX、ESI、EDI、EBP和ESP的低16位。</p>
+<h3 id="专用寄存器"><a href="#专用寄存器" class="headerlink" title="专用寄存器"></a>专用寄存器</h3><ul>
+<li>IP（instruction pointer）</li>
+</ul>
+<p>作为指令指针寄存器，它用来存放代码段中的偏移地址。在程序的运行的过程中，<strong><em>它始终指向下一条指令的首地址，它与段寄存器CS联用确定下一条指令的物理地址。</em></strong></p>
+<ul>
+<li>SP</li>
+</ul>
+<p>作为堆栈寄存器，它用来存放栈顶的偏移偏移地址。<strong>（注意：栈顶指针在有数据入栈的时候，会减小，有数据出栈的时候，会增加）</strong></p>
+<ul>
+<li>FLAGS</li>
+</ul>
+<p>称为标志寄存器，这是一个存放条件码、控制标志和系统标志的寄存器。其中有几个比较重要的标志位需要记忆。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg" alt="标志寄存器"></p>
+<ul>
+<li><p>CF（carry flag）进位标志。它记录了从最高有效位产生的进位值，减法运算时是借位，以及循环移位时。当最高有效位有进位时为1，否则为0。</p>
+</li>
+<li><p>PF（parity flag）奇偶标志。当操作数中1的个数为偶数时为1，否则为0。</p>
+</li>
+<li><p>ZF（zero flag）零标志。当运算结果为0时为1，否则为0。</p>
+</li>
+<li><p>SF（sign flag）符号标志。记录了运算结果的符号，结果为负时为1，否则为0。</p>
+</li>
+<li><p>OF（overflow flag）溢出标志。当操作数超出了机器能表示的范围时为1，否则为0。</p>
+</li>
+<li><p>DL（direction flag）控制标志位为方向标志。主要在串处理时使用，当DF为1时，每次操作之后都会使变址寄存器SI、DI减小，从而从高地址向低地址处理。反之，当DF为0时，每次操作后会使SI、DI变大。</p>
+</li>
+<li><p>IF（interrupt flag）中断标志。当IF为1时，可允许CPU响应可屏蔽中断请求，否则关闭请求，这在第8章中会涉及到。</p>
+</li>
+</ul>
+<h3 id="段寄存器"><a href="#段寄存器" class="headerlink" title="段寄存器"></a>段寄存器</h3><p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg" alt="段寄存器"></p>
+<p>段寄存器也是一种专用寄存器，它们主要用来存储器寻址，用来直接或间接的存放段地址。常见的有代码段（code segment）、数据段（data segment）、堆栈段（stack segment）和附加段（extra segment）。</p>
+<p>其中FS、GS以及所有32位寄存器是从80386 CPU开始引入的。他们也是属于附加的数据段。</p>
+<h2 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h2><p>未完待续。。。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2018/07/05/2018暑期硬件大作业——交通灯控制器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1869,175 +2087,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://ooobsidian.github.io/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="obsidian">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LRX's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/" itemprop="url">BZOJ 2818 Gcd(莫比乌斯反演)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-26T17:49:03+08:00">
-                2017-08-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                  <span class="post-meta-divider">|</span>
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计</span>
-                
-                <span title="字数统计">
-                  868
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长</span>
-                
-                <span title="阅读时长">
-                  5
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body han-init-context" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a><a href="https://vjudge.net/problem/37161/origin" target="_blank" rel="external">题目</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>给定整数 $N$ ，求 $1 \leq x,y \leq N$ 且 $Gcd(x,y)$ 为素数的数对 $(x,y)$ 有多少对.<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/08/26/BZOJ-2818-Gcd-莫比乌斯反演/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2088,7 +2137,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2101,7 +2150,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -2209,7 +2258,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共27.6k字</span>
+  <span class="post-count">博客全站共28.6k字</span>
 </div>
         
 

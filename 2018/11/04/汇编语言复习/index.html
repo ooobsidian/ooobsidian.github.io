@@ -107,22 +107,28 @@
 
 
 
-<meta name="description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)">
+<meta name="description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）">
 <meta name="keywords" content="技术,汇编语言">
 <meta property="og:type" content="article">
 <meta property="og:title" content="汇编语言复习">
 <meta property="og:url" content="http://ooobsidian.github.io/2018/11/04/汇编语言复习/index.html">
 <meta property="og:site_name" content="LRX&#39;s Blog">
-<meta property="og:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)">
+<meta property="og:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww1ygxr5pj307v09agly.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww6f5un9sj309n0b2ta5.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww6kejqsvj308707k0t3.jpg">
-<meta property="og:updated_time" content="2018-11-04T16:10:29.938Z">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx4gzfjgoj30cp07gdgl.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx55fwif8j30dt0ag0uc.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx5inz5tsj30d5080dgr.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx68iz03yj30dk089myk.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx71rp7gsj30dd043mxi.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx7d73uz7j30di08a3zv.jpg">
+<meta property="og:updated_time" content="2018-11-05T08:50:11.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言复习">
-<meta name="twitter:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)">
+<meta name="twitter:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）">
 <meta name="twitter:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fww13mt98qj30kl02dgmn.jpg">
 
 
@@ -424,7 +430,7 @@
                   <span class="post-meta-item-text">字数统计</span>
                 
                 <span title="字数统计">
-                  1,651
+                  3,910
                 </span>
               
 
@@ -440,7 +446,7 @@
                   <span class="post-meta-item-text">阅读时长</span>
                 
                 <span title="阅读时长">
-                  6
+                  14
                 </span>
               
             </div>
@@ -462,10 +468,11 @@
 
       
         <blockquote>
-<p>让我们来整理一下这学期汇编语言所学的知识（要挂了呀…)</p>
+<p>让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）</p>
 </blockquote>
 <a id="more"></a>
 <h1 id="第1章-基础知识"><a href="#第1章-基础知识" class="headerlink" title="第1章 基础知识"></a>第1章 基础知识</h1><p>其中提到了二进制数、八进制数和十六进制数的相互转换，补码，反码，逻辑运算的知识。这些知识我们都在数字逻辑这门课里学到过，在这里就不赘述了。</p>
+<hr>
 <h1 id="第2章-80x86计算机组织"><a href="#第2章-80x86计算机组织" class="headerlink" title="第2章 80x86计算机组织"></a>第2章 80x86计算机组织</h1><h2 id="寄存器组"><a href="#寄存器组" class="headerlink" title="寄存器组"></a>寄存器组</h2><h3 id="通用寄存器"><a href="#通用寄存器" class="headerlink" title="通用寄存器"></a>通用寄存器</h3><p>通用寄存器都可以以字（16位）或者字节（8位）的形式访问。</p>
 <ul>
 <li>AX（accumulator）</li>
@@ -524,7 +531,45 @@
 <h3 id="物理地址与逻辑地址"><a href="#物理地址与逻辑地址" class="headerlink" title="物理地址与逻辑地址"></a>物理地址与逻辑地址</h3><p>物理地址：内存单元的实际地址，也就是出现在地址总线上的地址。<br>逻辑地址：或称分段地址，记作 段地址: 段内偏移地址。<br>有效地址：将存储单元的实际地址与其所在段的段地址之间的距离称为段内偏移量(EA，Effective Address 或Offset)。<br>系统采用下列方法将逻辑地址自动转换为20位的物理地址：<strong>物理地址 = 段地址 × 16 + 偏移地址</strong>  </p>
 <h3 id="实模式存储器寻址"><a href="#实模式存储器寻址" class="headerlink" title="实模式存储器寻址"></a>实模式存储器寻址</h3><p>实模式下允许最大寻址空间为1MB，因为8086的地址总线宽度为20位，则$2^{20}=1024K=1M$，所以最大寻址空间为1MB。<br>（20位物理地址由16位段地址和16位偏移地址组成，段地址是指每一段的起始地址，由于它必须是小段的首地址，所以其低4位一定时0，这样，就可以规定段地址只取段起始地址的高16位值）。括号里的不想看，简而言之就是下图的计算方法，上面也提到了。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fww6kejqsvj308707k0t3.jpg" alt="物理地址 = 段地址 × 16 + 偏移地址"><br>也就是说，把段地址左移4位加上偏移地址就形成了物理地址。（一般给出的地址都是16进制的形式，这里的4位是指2进制的4位，所以对于16进制而言，只需要段地址后加一个0，一个0相当于二进制的0000，也就是向左移4位）。<br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>物理地址 = 段地址 × 16 + 偏移地址</strong><br><strong>重要的事情说三遍！！！</strong></p>
-<h1 id="第3章-80x86的指令系统和寻址方式"><a href="#第3章-80x86的指令系统和寻址方式" class="headerlink" title="第3章 80x86的指令系统和寻址方式"></a>第3章 80x86的指令系统和寻址方式</h1><p>……</p>
+<hr>
+<h1 id="第3章-80x86的指令系统和寻址方式"><a href="#第3章-80x86的指令系统和寻址方式" class="headerlink" title="第3章 80x86的指令系统和寻址方式"></a>第3章 80x86的指令系统和寻址方式</h1><h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>基本的寻址方式有七种，含比例因子的变址寻址方式有三种，我们来一一回顾。</p>
+<h3 id="立即寻址"><a href="#立即寻址" class="headerlink" title="立即寻址"></a>立即寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MOV  AH, 80H　　</div><div class="line">MOV  ECX, 12345678H</div><div class="line">MOV  AX, 4576H</div></pre></td></tr></table></figure>
+<p>以上这些都是立即寻址，因为他们的<strong>第二操作数都是立即数</strong>，所以立即寻址的名字也就是这么来的，很好记忆。<br>注意：以上指令中立即数不能作为第一操作数。而且源操作数和目的操作数的长度要一致。立即数可以是8位或者是16位的，在386+的机型中，立即数可以是8位或者32位的。  </p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx4gzfjgoj30cp07gdgl.jpg" alt="立即寻址"></p>
+<h3 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">MOV  EAX, EBX　　　</div><div class="line">ADD  AX, DX　　　</div><div class="line">ADD  AX, 1234H</div></pre></td></tr></table></figure>
+<p>这种寻址方式由于操作数就在寄存器当中，不需要访问存储器来取得操作数，因而可以得到较高的运算速度。前两个例子与立即寻址的长相不同，一看是寄存器作为第二操作数，那肯定就是寄存器寻址了，为什么第三个例子也是寄存器寻址呢？<br>因为第三个例子中AX这个寄存器本来就是有值的，这个指令的含义就是将AX中的内容加1234H得到的结果再放到AX中，那么在第一步获取AX的值的时候就采用了寄存器寻址的方式。</p>
+<h3 id="直接寻址"><a href="#直接寻址" class="headerlink" title="直接寻址"></a>直接寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MOV  BX, [1234H]  ;缺省使用段寄存器DS</div><div class="line">MOV  ES:[1000H], AX  ;指定用段寄存器ES</div></pre></td></tr></table></figure>
+<p>操作数的有效地址只包含 位移量这一种成分，其值就存放在代码段中指令的操作码之后。位移量的值即操作数的有效地址。在汇编语言中，可以使用符号地址代替数值地址，例如<code>MOV AX, VALUE</code>，此时的VALUE是存放操作数单元的符号地址，写成<code>MOV AX, [VALUE]</code>也是可以的，二者是等效的。<br>值得一提的是，在第二个例子中，<code>[1000H]</code>在附加段中，则加上指定段的跨越前缀，在此处为<code>ES:</code>，如不写出，缺省为<code>DS:</code>。  </p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx55fwif8j30dt0ag0uc.jpg" alt="直接寻址"></p>
+<h3 id="寄存器间接寻址"><a href="#寄存器间接寻址" class="headerlink" title="寄存器间接寻址"></a>寄存器间接寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MOV  BX, [DI]  </div><div class="line">MOV  AX, [BX]</div></pre></td></tr></table></figure>
+<p>操作数的有效地址只包含基址寄存器内容或变址寄存器内容的一种成分。<br>例如第一个例子中，<code>DI</code>为变址寄存器，变址寄存器有<code>SI</code>和<code>DI</code>两种，而基址寄存器有<code>BX</code>和<code>BP</code>两种，就展现在第二个例子中。<br>注意：若有效地址用<code>SI</code>、<code>DI</code>和<code>BX</code>等之一来指定，则其缺省的段寄存器为<code>DS</code>。若有效地址用<code>BP</code>来指定，则其缺省的段寄存器为<code>SS</code>（即：堆栈段）。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx5inz5tsj30d5080dgr.jpg" alt="寄存器间接寻址"></p>
+<h3 id="寄存器相对寻址（或称直接变址寻址）"><a href="#寄存器相对寻址（或称直接变址寻址）" class="headerlink" title="寄存器相对寻址（或称直接变址寻址）"></a>寄存器相对寻址（或称直接变址寻址）</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MOV  EAX,TABLE[ESI]</div><div class="line">MOV  AX, COUNT[SI]</div><div class="line">;(也可表示成MOV  AX,[COUNT+SI])</div><div class="line">;其中COUNT为16位位移量的符号地址</div></pre></td></tr></table></figure>
+<p>操作数的有效地址为基址寄存器或变址寄存器的内容和指令中指定的位移量之和。所以有效地址由两种成分，一个是基址寄存器或变址寄存器的内容，另一个是指定的位移量。举个例子，如果（DS）=3000H，（SI）=2000H，COUNT=3000H，则物理地址=3000*16+2000+3000=30000+2000+3000=35000H</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx68iz03yj30dk089myk.jpg" alt="寄存器相对寻址"></p>
+<p>对于寄存器间接寻址和寄存器相对寻址两种方式来说，在名称上只有“相对”和“间接”的区别，但还是很好区分的：“间接”表示通过一个寄存器间接寻址，重点是“一个寄存器”，而“相对”的意思就是相对一个寄存器还要偏移一部分的方式，重点是“相对着一个有另一个”，那么就是两个寄存器，这样就很好区分寄存器间接寻址和寄存器相对寻址了。</p>
+<h3 id="基址变址寻址"><a href="#基址变址寻址" class="headerlink" title="基址变址寻址"></a>基址变址寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MOV  AX, [BX][DI]</div><div class="line">;或写为：MOV  AX,[BX+DI]</div></pre></td></tr></table></figure>
+<p>操作数的有效地址是一个基址寄存器和一个变址寄存器的内容之和。<br>简单来说，就是只能用一个基址寄存器和一个变址寄存器，而且是必须！<br>如（DS）=2100H，（BX）=0158H，（DI）=10A5H，则EA=0158+10A5=11FDH，则物理地址=21000+11FD=221FDH。<br>基址变址寻址同样很好记忆，因为这种寻址方式的名字就叫做基址变址，所以需要一个基址寄存器和一个变址寄存器。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx71rp7gsj30dd043mxi.jpg" alt="基址变址寻址"></p>
+<h3 id="相对基址变址寻址"><a href="#相对基址变址寻址" class="headerlink" title="相对基址变址寻址"></a>相对基址变址寻址</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MOV AX, [BX+SI+200H]</div><div class="line">;或写成：MOV AX, 200H[BX][SI]</div></pre></td></tr></table></figure>
+<p>操作数的有效地址是一个基址寄存器与一个变址寄存器的内容和指令中指定的位移量之和，所以有效地址由三部分组成。例如当（DS）=3000H，（BX）=2000H，（SI）=1000H，MASK=0250H。则物理地址=16D*（DS）+（BX）+（SI）+MASK=30000+2000+1000+0250=33250H</p>
+<p>这种寻址方式的名字就叫做相对基址变址，所以需要一个基址寄存器和一个变址寄存器，又有“相对”这个字眼，那么就需要出现一个偏移量作为相对的量，那么看到名字就可以知道这个寻址方式需要三个寄存器。</p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwx7d73uz7j30di08a3zv.jpg" alt="相对基址变址寻址"></p>
+<h3 id="含比例因子的变址寻址"><a href="#含比例因子的变址寻址" class="headerlink" title="含比例因子的变址寻址"></a>含比例因子的变址寻址</h3><p>在这里我们就不详细介绍这三种寻址方式了，因为他们都是在386+的机型里才有的，我们只需要知道名称，他们分别是<strong>比例变址寻址方式</strong>、<strong>基址比例变址寻址方式</strong>、<strong>相对基址比例变址寻址方式</strong>。</p>
+<p>对于寻址方式就回顾到这里，在后面的综合应用中还是要牢记这七种基本的寻址方式。</p>
+<h2 id="80x86的指令系统"><a href="#80x86的指令系统" class="headerlink" title="80x86的指令系统"></a>80x86的指令系统</h2><p>指令系统是一个重要的系统，因为它涉及到整个汇编语言的编写，而且这里的指令就是一个助记符，它代表的就是机器指令，在80x86的机型中，我们将指令分为这么6组：数据传送指令、算术指令、逻辑指令、串处理指令、控制转移指令、处理机控制指令。下面我们就来总览一下这些考试中常见以及常用的指令。</p>
+<h3 id="数据传送指令"><a href="#数据传送指令" class="headerlink" title="数据传送指令"></a>数据传送指令</h3><h4 id="通用数据传送指令"><a href="#通用数据传送指令" class="headerlink" title="通用数据传送指令"></a>通用数据传送指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MOV         传送</div><div class="line">PUSH        进栈</div><div class="line">POP         出栈</div><div class="line">XCHG        交换</div></pre></td></tr></table></figure>
+<ol>
+<li>MOV（move）传送<br>格式是：<code>MOV DST，SRC</code><br>它的含义就是将<code>SRC</code>中的内容复制到<code>DST</code>中去，<code>SRC</code>不变。对标志位无影响。<br>注意MOV指令的使用规范，不能有以下操作：<br>(1) 两个操作数类型不一致：如字节和字不一致<br>(2) 两个操作数不能都是存储器，如：<code>MOV [BX], [SI]</code><br>(3) 将立即数传送给段寄存器，如：<code>MOV DS, 100H</code><br>(4) 不能直接改变<code>CS</code>的值，如：<code>MOV CS, [SI]</code><br>(5) 段寄存器间不能进行直接的数据传送，如：<code>MOV DS, ES</code>，要传送段地址必须通过寄存器（如<code>AX</code>寄存器）送到<code>DS</code>寄存器<br>(6) <code>IP</code>不能作为<code>MOV</code>的操作数  </li>
+<li><p>PUSH 进栈<br>格式是：<code>PUSH  SRC</code><br>含义就是将<code>SRC</code>进行压栈操作，这个操作可以用来进行保存现场，简单来说就是可以将<code>SRC</code>的值临时保存在栈中，在<code>POP</code>操作后可以将这个临时保存的值取出来。该操作对标志位无影响。<br>要注意的是：<code>PUSH</code>操作只能对字数据以及双字数据进行操作。当对16位操作数进行操作时，<code>SP = SP-2</code>，<code>SS:[SP]</code>指向16位操作数；当对32位数据进行操作时，<code>SP = SP-4</code>，<code>SS:[SP]</code>指向32位操作数。<br><code>PUSH</code>指令可以有的四种格式：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">PUSH  reg(寄存器)</div><div class="line">PUSH  mem(存储器)</div><div class="line">PUSH  data(立即数)</div><div class="line">PUSH  segreg(段寄存器)</div></pre></td></tr></table></figure>
+</li>
+<li><p>POP 出栈<br>格式是：<code>POP DST</code><br>它的含义就是将堆栈中的值取出来，赋值给<code>DST</code>。同样，<code>POP</code>操作也只能对16位和32位数据进行操作。它也对标志位无影响。<br>要注意的是：当对16位操作数进行操作时，16位操作数←<code>SS:[SP]</code>，<code>SP = SP + 2</code>；当对32位操作数进行操作时，32位操作数←<code>SS:[SP]</code>，<code>SP = SP + 4</code>。<br>要记住，堆栈这个数据结构，其栈底的地址较高，栈顶的额地址较低，所以展现出在有数据压栈的时候<code>SP</code>是进行减操作的，而当有数据进行出栈操作的时候，<code>SP</code>指针的进行加操作的。所以越靠近栈底的地址越大。<br><code>POP</code>指令允许的格式有：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">POP  reg(寄存器)</div><div class="line">POP  mem(存储器)</div><div class="line">POP  segreg(段寄存器)</div></pre></td></tr></table></figure>
+</li>
+<li><p>XCHG（exchange）交换<br>格式是：<code>XCHG OPR1, OPR2</code><br>其含义就是将<code>OPR1</code>与<code>OPR2</code>两个操作数的内容进行交换。<br>要注意的是：该指令的两个操作数中必须有一个在寄存器中，因此它可以在寄存器之间或者在寄存器与存储器之间交换信息，但不允许段寄存器。该指令可用除<strong>立即数</strong>外的任何寻址方式，且不影响标志位。</p>
+</li>
+</ol>
 
       
     </div>
@@ -796,7 +841,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-基础知识"><span class="nav-number">1.</span> <span class="nav-text">第1章 基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-80x86计算机组织"><span class="nav-number">2.</span> <span class="nav-text">第2章 80x86计算机组织</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器组"><span class="nav-number">2.1.</span> <span class="nav-text">寄存器组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用寄存器"><span class="nav-number">2.1.1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专用寄存器"><span class="nav-number">2.1.2.</span> <span class="nav-text">专用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段寄存器"><span class="nav-number">2.1.3.</span> <span class="nav-text">段寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器"><span class="nav-number">2.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理地址与逻辑地址"><span class="nav-number">2.2.1.</span> <span class="nav-text">物理地址与逻辑地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实模式存储器寻址"><span class="nav-number">2.2.2.</span> <span class="nav-text">实模式存储器寻址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-80x86的指令系统和寻址方式"><span class="nav-number">3.</span> <span class="nav-text">第3章 80x86的指令系统和寻址方式</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-基础知识"><span class="nav-number">1.</span> <span class="nav-text">第1章 基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-80x86计算机组织"><span class="nav-number">2.</span> <span class="nav-text">第2章 80x86计算机组织</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#寄存器组"><span class="nav-number">2.1.</span> <span class="nav-text">寄存器组</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用寄存器"><span class="nav-number">2.1.1.</span> <span class="nav-text">通用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#专用寄存器"><span class="nav-number">2.1.2.</span> <span class="nav-text">专用寄存器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#段寄存器"><span class="nav-number">2.1.3.</span> <span class="nav-text">段寄存器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存储器"><span class="nav-number">2.2.</span> <span class="nav-text">存储器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#物理地址与逻辑地址"><span class="nav-number">2.2.1.</span> <span class="nav-text">物理地址与逻辑地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实模式存储器寻址"><span class="nav-number">2.2.2.</span> <span class="nav-text">实模式存储器寻址</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-80x86的指令系统和寻址方式"><span class="nav-number">3.</span> <span class="nav-text">第3章 80x86的指令系统和寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#寻址方式"><span class="nav-number">3.1.</span> <span class="nav-text">寻址方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#立即寻址"><span class="nav-number">3.1.1.</span> <span class="nav-text">立即寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器寻址"><span class="nav-number">3.1.2.</span> <span class="nav-text">寄存器寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#直接寻址"><span class="nav-number">3.1.3.</span> <span class="nav-text">直接寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器间接寻址"><span class="nav-number">3.1.4.</span> <span class="nav-text">寄存器间接寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#寄存器相对寻址（或称直接变址寻址）"><span class="nav-number">3.1.5.</span> <span class="nav-text">寄存器相对寻址（或称直接变址寻址）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基址变址寻址"><span class="nav-number">3.1.6.</span> <span class="nav-text">基址变址寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相对基址变址寻址"><span class="nav-number">3.1.7.</span> <span class="nav-text">相对基址变址寻址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#含比例因子的变址寻址"><span class="nav-number">3.1.8.</span> <span class="nav-text">含比例因子的变址寻址</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#80x86的指令系统"><span class="nav-number">3.2.</span> <span class="nav-text">80x86的指令系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据传送指令"><span class="nav-number">3.2.1.</span> <span class="nav-text">数据传送指令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#通用数据传送指令"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">通用数据传送指令</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -852,7 +897,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共29.3k字</span>
+  <span class="post-count">博客全站共31.5k字</span>
 </div>
         
 

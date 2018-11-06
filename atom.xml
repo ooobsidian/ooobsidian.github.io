@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-11-05T15:30:13.103Z</updated>
+  <updated>2018-11-06T06:06:06.900Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ooobsidian.github.io/2018/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"/>
     <id>http://ooobsidian.github.io/2018/11/04/汇编语言复习/</id>
     <published>2018-11-04T06:03:41.000Z</published>
-    <updated>2018-11-05T15:30:13.103Z</updated>
+    <updated>2018-11-06T06:06:06.900Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）</p>
@@ -144,7 +144,7 @@
 </ol>
 <h4 id="地址传送指令"><a href="#地址传送指令" class="headerlink" title="地址传送指令"></a>地址传送指令</h4><p>这里就复习一下<code>LEA</code>和<code>LDS</code>就行辣…</p>
 <ol>
-<li><p>LEA（load effective address）有效地址送寄存器<br>一般格式为：<code>LEA REG, SRC</code><br>功能：把一个内存变量的有效地址送给指定的寄存器(此处reg不能使用段寄存器)。当reg长度大于地址长度时，将地址零扩展后存入reg；当reg长度小于地址长度时，截取地址的低16位存入reg。该指令通常用来对指针或变址寄存器<code>BX</code>、<code>DI</code>或<code>SI</code>等置初值之用。对标志位无影响。<br>简单来说，该指令就是把源操作数的有效地址送到指定的寄存器中。（注：此处的有效地址不说物理地址，不用加DS）<br>例：<br>设BX=5678H，EAX=00002345H，EDX=00001111H。</p>
+<li><p>LEA（load effective address）有效地址送寄存器<br>一般格式为：<code>LEA REG, SRC</code><br>功能：把一个内存变量的有效地址送给指定的寄存器(此处reg不能使用段寄存器)。当reg长度大于地址长度时，将地址零扩展后存入reg；当reg长度小于地址长度时，截取地址的低16位存入reg。该指令通常用来对指针或变址寄存器<code>BX</code>、<code>DI</code>或<code>SI</code>等置初值之用。对标志位无影响。<br>简单来说，该指令就是把源操作数的有效地址送到指定的寄存器中。（注：此处的有效地址不是物理地址，不用加DS）<br>例：<br>设BX=5678H，EAX=00002345H，EDX=00001111H。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">LEA  SI, 2[BX]          ;执行后，SI = 567AH</div><div class="line">LEA  SI, 2[EAX][EDX]    ;执行后，SI = 3458H，因为SI是一个16位的寄存器</div></pre></td></tr></table></figure>
 </li>
 <li><p>LDS（load DS with pointer）指针送寄存器和DS<br>一般格式为：<code>LDS  REG, SRC</code><br>功能：当指令指定的是16位寄存器时，把该存储单元中存放的16位偏移地址（即<code>SRC</code>）装入该寄存器中，然后把<code>SRC+2</code>中的额16位数装入<code>DS</code>中。该指令不影响标志位。（当指令指定的是32位寄存器时，把该寄存单元中存放的32位偏移地址装入该寄存器中，然后把<code>SRC+4</code>中的16位数装入指令指定的段寄存器中）</p>
@@ -154,7 +154,64 @@
 <ol>
 <li>LAHF（load AH with flags）标志寄存器送累加器指令<br>一般格式：<code>LAHF</code><br>功能：将标志寄存器的<strong>低8位</strong>传送到<code>AH</code>中。该指令对标志位无影响。</li>
 <li>SAHF（store AH into flags）累加器送标志寄存器指令<br>一般格式为：<code>SAHF</code><br>功能：将<code>AH</code>的值传送给标志寄存器的<strong>低8位</strong>。该指令对标志位的影响由新装入标志寄存器的值决定。</li>
+<li>PUSHF/PUSHFD（push the flags or eflags）标志进栈<br>一般格式为：<code>PUSHF</code>或<code>PUSHFD</code><br>功能：将<code>FLAGS</code>进栈，并且<code>SP = SP - 2</code>/将<code>EFLAGS</code>进栈，并且<code>SP = SP - 4</code>。对标志位的影响：<code>PUSHFD</code>清除<code>VM</code>和<code>RF</code>位。  </li>
+<li><p>POPF/POPFD（pop fkags off stack）标志出栈<br>一般格式为：<code>POPF</code>或<code>POPFD</code><br>功能：将栈顶字出栈到<code>FLAGS</code>， 并且<code>SP = SP + 2</code>/将栈顶双字出栈到<code>EFLAGS</code>，并且<code>SP = SP + 4</code>。对标志位的影响：<code>POPF/POPFD</code>指令会以弹出值设置标志寄存器。</p>
+<h4 id="类型转换指令"><a href="#类型转换指令" class="headerlink" title="类型转换指令"></a>类型转换指令</h4><p>这里只强调这两个指令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CBW     字节转换为字</div><div class="line">CWD     字转换为双字</div></pre></td></tr></table></figure>
+</li>
+<li><p>CBW（convert byte to word）字节转换为字<br>一般格式为：<code>CBW</code><br>功能：将<code>AL</code>的内容符号扩展到<code>AH</code>，形成<code>AX</code>中的字。如果<code>AL</code>的最高有效位为0，则<code>AH=0</code>；如果AL的最高有效位为1，则<code>AH=0FFH</code>。<br>注意：这个指令进行的是符号位扩展。还有一点就是它只针对<code>AX</code>，没有其他的寄存器。  </p>
+</li>
+<li><p>CWD（convert word to double word）字转换为双字<br>一般格式为：<code>CWD</code><br>功能：将<code>AX</code>的内容符号扩展到<code>DX</code>，形成<code>DX：AX</code>中的双字。即如果<code>AX</code>的最高有效位为0，则<code>DX=0</code>；如<code>AX</code>的最高有效位为1，则<code>DX=0FFFFH</code>。<br>注意：同<code>CBW</code>类似，它进行的是符号位的扩展，而且它只扩展到<code>DX</code>，没有其他的寄存。  </p>
+<h3 id="算术指令"><a href="#算术指令" class="headerlink" title="算术指令"></a>算术指令</h3><h4 id="加法指令"><a href="#加法指令" class="headerlink" title="加法指令"></a>加法指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ADD     加法</div><div class="line">ADC     带进位加法</div><div class="line">INC     加1</div></pre></td></tr></table></figure>
+</li>
+<li><p>ADD（add）加法<br>一般格式：<code>ADD  DST, SRC</code><br>功能：把源操作数的值加到目的操作数中。<br>受影响的标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。<br>注意：如前所述，双操作数的指令的两个操作数中除源操作数为立即数的情况外，必须有一个操作数在寄存器中。单操作数指令不允许使用立即数的方式。  </p>
+</li>
+<li>ADC（add with carry）带进位的加法<br>一般格式：<code>ADC  DST, SRC</code><br>功能：把源操作数和进位标志<code>CF</code>的值一起加到目的操作数中。<br>受影响的标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。<br>注意点和<code>ADD</code>相同。</li>
+<li>INC（increment）加1<br>一般格式：<code>INC  OPR</code><br>功能：把操作数的值加1再存入该操作数中。<br>受影响的标志位：<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>，<strong>但不影响<code>CF</code></strong>。</li>
 </ol>
+<p>为实现双精度加法，必须用两条指令分别完成低位字和高位字的加法，而且在高位字相加时，应使用<code>ADC</code>指令，以便把前一条<code>ADD</code>指令作为低字加法所产生的进位值加入高位字之内。</p>
+<h4 id="减法指令"><a href="#减法指令" class="headerlink" title="减法指令"></a>减法指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">SUB     减法</div><div class="line">SBB     带借位减法</div><div class="line">DEC     减1</div><div class="line">NEG     求补</div><div class="line">CMP     比较</div></pre></td></tr></table></figure>
+<ol>
+<li>SUB（subtract）减法<br>一般格式：<code>SUB  DST, SRC</code><br>功能：从目的操作数中减去源操作数，把差值赋值给目的操作数。<br>受影响标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。</li>
+<li>SBB（subtract with borrow）带借位减法<br>一般格式：<code>SBB  DST, SRC</code><br>功能：把源操作数和标志位<code>CF</code>的值从目的操作数中一起减去，把差值赋给目的操作数<code>DST</code>。<br>受影响标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。</li>
+<li>DEC（decrement）减1<br>一般格式：<code>DEC  OPR</code><br>功能：把操作数的值减1把结果存入该操作数中。<br>受影响的标志位：<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>，<strong>但不影响<code>CF</code></strong>。</li>
+<li>NEG（negate）求补<br>一般格式：<code>NEG  OPR</code><br>功能：<strong>操作数=0-操作数</strong>，即改变操作数的正负号。<br>受影响标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。</li>
+<li><p>CMP（compare）比较<br>一般格式：<code>CMP  OPR1, OPR2</code><br>功能：用第一个操作数减去第二个操作数，并根据所得的差值设置有关的标志位。但它与<code>SUB</code>的区别就是不会将减法的结果保存在<code>OPR1</code>中。<br>受影响标志位：<code>CF</code>、<code>PF</code>、<code>AF</code>、<code>ZF</code>、<code>SF</code>和<code>OF</code>。</p>
+<h4 id="乘法指令"><a href="#乘法指令" class="headerlink" title="乘法指令"></a>乘法指令</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">MUL     无符号数乘法</div><div class="line">IMUL    带符号数乘法</div></pre></td></tr></table></figure>
+</li>
+<li><p>MUL（unsigned multiple）无符号数乘法<br>一般格式：<code>MUL  SRC</code><br>功能：把显式操作数和隐含操作数(都作为无符号数)相乘，所得的乘积如表中对应关系存放。  </p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">乘数位数</th>
+<th style="text-align:center">隐含的被乘数</th>
+<th style="text-align:center">指令举例</th>
+<th style="text-align:center">乘积的存放位置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">8位</td>
+<td style="text-align:center"><code>AL</code></td>
+<td style="text-align:center">MUL BL  IMUL BL</td>
+<td style="text-align:center">AX ←AL *BL</td>
+</tr>
+<tr>
+<td style="text-align:center">16位</td>
+<td style="text-align:center"><code>AX</code></td>
+<td style="text-align:center">MUL BX  IMUL BX</td>
+<td style="text-align:center">DX-AX ←AX *BX</td>
+</tr>
+<tr>
+<td style="text-align:center">32位</td>
+<td style="text-align:center"><code>EAX</code></td>
+<td style="text-align:center">MUL ECX  IMUL ECX</td>
+<td style="text-align:center">EDX-EAX ←EAX *ECX</td>
+</tr>
+</tbody>
+</table>
 ]]></content>
     
     <summary type="html">
@@ -1091,9 +1148,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数论" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="原根" scheme="http://ooobsidian.github.io/tags/%E5%8E%9F%E6%A0%B9/"/>
     
@@ -1197,9 +1254,9 @@
     </summary>
     
     
-      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="算法" scheme="http://ooobsidian.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
       <category term="拓扑排序" scheme="http://ooobsidian.github.io/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/"/>
     

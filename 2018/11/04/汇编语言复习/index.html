@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxiwdbyej308a078t8y.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxodna1wj30aa057q34.jpg">
-<meta property="og:updated_time" content="2018-11-08T13:10:05.125Z">
+<meta property="og:updated_time" content="2018-11-08T13:12:34.845Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言复习">
 <meta name="twitter:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）">
@@ -786,7 +786,7 @@
 <li>SCAS（scan string）串扫描指令<br>一般格式：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SCAS DST</div><div class="line">SCASB (字节)</div><div class="line">SCASW (字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 $ |<br>|     字     | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 $ |<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
+<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 |<br>|     字     | (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 |<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxodna1wj30aa057q34.jpg" alt=""></p>
 <p>(更的有点慢啊…)</p>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://ooobsidian.github.io/"/>
-  <updated>2018-11-08T13:12:34.845Z</updated>
+  <updated>2018-11-08T14:43:02.377Z</updated>
   <id>http://ooobsidian.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://ooobsidian.github.io/2018/11/04/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80%E5%A4%8D%E4%B9%A0/"/>
     <id>http://ooobsidian.github.io/2018/11/04/汇编语言复习/</id>
     <published>2018-11-04T06:03:41.000Z</published>
-    <updated>2018-11-08T13:12:34.845Z</updated>
+    <updated>2018-11-08T14:43:02.377Z</updated>
     
     <content type="html"><![CDATA[<blockquote>
 <p>让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）</p>
@@ -313,7 +313,7 @@
 <li>MOVS（move string）串传送<br>一般格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MOVS DST, SRC</div><div class="line">MOVSB (字节)</div><div class="line">MOVSW (字)</div><div class="line">MOVSD (双字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>其中后三种格式明确的注明是传送字节、字或者双字。<br>MOVS执行的操作如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (Source-index)\pm1\to Source-index\\ (Destionation-index)\pm1\to Destionation-index$ |<br>|     字     | $ (Source-index)\pm2\to Source-index\\ (Destionation-index)\pm2\to Destionation-index $ |<br>在上述操作中，当方向标志位<code>DF=0</code>时用+，<code>DF=1</code>时用减。<br><code>Source-index</code>为源变址寄存器，当其地址长度为16的时候用<code>SI</code>寄存器，<code>Destionation-index</code>为目的变址寄存器，当其长度为16时用<code>DI</code>寄存器。<br><code>MOVS</code>指令不影响标志位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg" alt="">  </p>
+<p>其中后三种格式明确的注明是传送字节、字或者双字。<br>MOVS执行的操作如下：<br>|操作数类型|操作|<br>|:–:|:–:|<br>|字节|$ (Source-index)\pm1\to Source-index\\ (Destionation-index)\pm1\to Destionation-index $|<br>|字|$ (Source-index)\pm2\to Source-index\\ (Destionation-index)\pm2\to Destionation-index $|<br>在上述操作中，当方向标志位<code>DF=0</code>时用+，<code>DF=1</code>时用减。<br><code>Source-index</code>为源变址寄存器，当其地址长度为16的时候用<code>SI</code>寄存器，<code>Destionation-index</code>为目的变址寄存器，当其长度为16时用<code>DI</code>寄存器。<br><code>MOVS</code>指令不影响标志位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg" alt="">  </p>
 <p><strong>MOVS和REP联用</strong>  </p>
 <ul>
 <li>当<code>MOVS</code>与<code>REP</code>联用时，源串必须在数据段中，目的串必须在附加段中，源串允许使用段跨越前缀来修改；</li>
@@ -324,15 +324,48 @@
 <li>CMPS（compare string）串比较<br>一般格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CMPS DST, SRC</div><div class="line">CMPSB (字节)</div><div class="line">CMPSW (字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (Source-index)\leftarrow (Source-index)\pm1\\ (Destionation-index)\leftarrow (Destionation-index)\pm1$ |<br>|     字     | $ (Source-index)\leftarrow (Source-index)\pm2\\ (Destionation-index)\leftarrow (Destionation-index)\pm2$ |</p>
+<p>功能如下：<br>|操作数类型|操作|<br>|:–:|:–:|<br>|字节|$ (Source-index)\leftarrow (Source-index)\pm1\\ (Destionation-index)\leftarrow (Destionation-index)\pm1$|<br>|字|$ (Source-index)\leftarrow (Source-index)\pm2\\ (Destionation-index)\leftarrow (Destionation-index)\pm2$|</p>
 <p>该指令把源地址寄存器指向的数据段中的一个字节、字或双字与目的变址寄存器所指向的附加段中的一个字节、字或者双字相减，但不保存结果，只根据结果置标志码，指令的其他特性和<code>MOVS</code>的规定相同。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxiwdbyej308a078t8y.jpg" alt=""></p>
 <ol>
 <li>SCAS（scan string）串扫描指令<br>一般格式：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SCAS DST</div><div class="line">SCASB (字节)</div><div class="line">SCASW (字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 |<br>|     字     | (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 |<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
+<p>功能如下：<br>|操作数类型|操作|<br>|:–:|:–:|<br>|字节|$ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 $|<br>|字|$ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 $|<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxodna1wj30aa057q34.jpg" alt=""></p>
-<p>(更的有点慢啊…)</p>
+<ol>
+<li>LODS（load string）从串取指令<br>一般格式：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">LODS SRC</div><div class="line">LODSB (字节)</div><div class="line">LODSW (字)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>功能如下：<br>|操作数类型|操作|<br>|:–:|:–:|<br>|字节|$ (AL) \leftarrow ([DS:SI]),SI \leftarrow SI\pm1 $|<br>|字|$ (AX) \leftarrow ([DS:SI]),SI \leftarrow SI\pm2 $|<br>该指令把由源编制及存取从指向的数据段中某单元的内容送到<code>AL</code>、<code>AX</code>中，并根据方向标志和数据类型修改源变址寄存器的内容。  </p>
+<p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fx0z32ak4hj307w04cq31.jpg" alt=""></p>
+<ol>
+<li>STOS（store string）存入串指令<br>一般格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">STOS DST</div><div class="line">STOSB (字节)</div><div class="line">STOSW (字)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>功能如下：<br>|操作数类型|操作|<br>|:–:|:–:|<br>|字节|$ [ES:DI] \leftarrow AL,DI \leftarrow DI\pm1 $|<br>|字|$ [ES:DI] \leftarrow AX,DI \leftarrow DI\pm2 $|<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fx0z9sp08uj308j03xjrh.jpg" alt=""></p>
+<h3 id="控制转移指令"><a href="#控制转移指令" class="headerlink" title="控制转移指令"></a>控制转移指令</h3><h4 id="无条件跳转指令"><a href="#无条件跳转指令" class="headerlink" title="无条件跳转指令"></a>无条件跳转指令</h4><ul>
+<li>JMP（jmp）跳转指令<h4 id="条件转移指令"><a href="#条件转移指令" class="headerlink" title="条件转移指令"></a>条件转移指令</h4><strong>无符号数</strong></li>
+<li>JZ（或JE）结果为0或相等转移</li>
+<li>JNZ（或JNE）结果不为0或不相等转移</li>
+<li>JS 结果为负则转移</li>
+<li>JNS 结果为正则转移</li>
+<li>JO 溢出则转移</li>
+<li>JNO 不溢出则转移</li>
+<li>JP 奇偶位为1则转移</li>
+<li>JNP 奇偶位为0则转移</li>
+<li>JB $&lt;$则转移</li>
+<li>JNB $\geq$ 则转移</li>
+<li>JBE（或JNA）$\leq$ 则转移</li>
+<li>JA $&gt;$ 则转移</li>
+<li>JCXZ <code>CX</code>寄存器的内容为0则转移<br><strong>带符号数</strong></li>
+<li>JL $&lt;$ 则转移</li>
+<li>JNL $\geq$ 则转移</li>
+<li>JNG $\leq$ 则转移</li>
+<li>JG $&gt;$ 则转移<h4 id="循环指令"><a href="#循环指令" class="headerlink" title="循环指令"></a>循环指令</h4>最常用的就是LOOP指令了，一般格式为：<code>LOOP OPR</code>，<code>CX</code>寄存器作为计数寄存器，没进行一次<code>LOOP</code>指令，<code>CX</code>就会减一，直到<code>CX</code>减到0为止，<code>LOOP</code>循环结束。<h4 id="子程序"><a href="#子程序" class="headerlink" title="子程序"></a>子程序</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">CALL    调用</div><div class="line">RET     返回</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">INT     中断</div><div class="line">IRET    从中断返回（中断调用子程序特有）</div></pre></td></tr></table></figure>
+<h3 id="处理器指令"><a href="#处理器指令" class="headerlink" title="处理器指令"></a>处理器指令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">CLC     CF置0</div><div class="line">STC     CF置1</div><div class="line">CLD     DF置0</div><div class="line">STD     DF置1</div><div class="line">CLI     IF（中断标志）置1</div><div class="line">STI     IF置0</div><div class="line">NOP     无操作指令</div></pre></td></tr></table></figure>
 ]]></content>
     
     <summary type="html">
@@ -1272,11 +1305,11 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="线段树" scheme="http://ooobsidian.github.io/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+      <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
     
   </entry>
   
@@ -1538,9 +1571,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
-    
       <category term="数据结构" scheme="http://ooobsidian.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+      <category term="POJ" scheme="http://ooobsidian.github.io/tags/POJ/"/>
     
   </entry>
   
@@ -1575,9 +1608,9 @@
     
       <category term="ACM" scheme="http://ooobsidian.github.io/tags/ACM/"/>
     
-      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
-    
       <category term="HDU" scheme="http://ooobsidian.github.io/tags/HDU/"/>
+    
+      <category term="BFS" scheme="http://ooobsidian.github.io/tags/BFS/"/>
     
   </entry>
   

@@ -136,7 +136,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxiwdbyej308a078t8y.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxodna1wj30aa057q34.jpg">
-<meta property="og:updated_time" content="2018-11-07T15:53:47.844Z">
+<meta property="og:updated_time" content="2018-11-08T13:10:05.125Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="汇编语言复习">
 <meta name="twitter:description" content="让我们来整理一下这学期汇编语言所学的知识（要挂了呀…）">
@@ -769,7 +769,7 @@
 <li>MOVS（move string）串传送<br>一般格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">MOVS DST, SRC</div><div class="line">MOVSB (字节)</div><div class="line">MOVSW (字)</div><div class="line">MOVSD (双字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>其中后三种格式明确的注明是传送字节、字或者双字。<br>MOVS执行的操作如下：<br>| 操作数类型 |                             操作                             |<br>| :——–: | :———————————————————-: |<br>|    字节    | $ (Source-index)\pm1\to Source-index\\ (Destionation-index)\pm1\to Destionation-index$ |<br>|     字     | $ (Source-index)\pm2\to Source-index\\ (Destionation-index)\pm2\to Destionation-index $ |<br>在上述操作中，当方向标志位<code>DF=0</code>时用+，<code>DF=1</code>时用减。<br><code>Source-index</code>为源变址寄存器，当其地址长度为16的时候用<code>SI</code>寄存器，<code>Destionation-index</code>为目的变址寄存器，当其长度为16时用<code>DI</code>寄存器。<br><code>MOVS</code>指令不影响标志位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg" alt="">  </p>
+<p>其中后三种格式明确的注明是传送字节、字或者双字。<br>MOVS执行的操作如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (Source-index)\pm1\to Source-index\\ (Destionation-index)\pm1\to Destionation-index$ |<br>|     字     | $ (Source-index)\pm2\to Source-index\\ (Destionation-index)\pm2\to Destionation-index $ |<br>在上述操作中，当方向标志位<code>DF=0</code>时用+，<code>DF=1</code>时用减。<br><code>Source-index</code>为源变址寄存器，当其地址长度为16的时候用<code>SI</code>寄存器，<code>Destionation-index</code>为目的变址寄存器，当其长度为16时用<code>DI</code>寄存器。<br><code>MOVS</code>指令不影响标志位。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzwledcmtj305v05r0sp.jpg" alt="">  </p>
 <p><strong>MOVS和REP联用</strong>  </p>
 <ul>
 <li>当<code>MOVS</code>与<code>REP</code>联用时，源串必须在数据段中，目的串必须在附加段中，源串允许使用段跨越前缀来修改；</li>
@@ -780,13 +780,13 @@
 <li>CMPS（compare string）串比较<br>一般格式：<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">CMPS DST, SRC</div><div class="line">CMPSB (字节)</div><div class="line">CMPSW (字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>| :——–: | :———————————————————-: |<br>|    字节    | $ (Source-index)\leftarrow (Source-index)\pm1\\ (Destionation-index)\leftarrow (Destionation-index)\pm1$ |<br>|     字     | $ (Source-index)\leftarrow (Source-index)\pm2\\ (Destionation-index)\leftarrow (Destionation-index)\pm2$ |</p>
+<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (Source-index)\leftarrow (Source-index)\pm1\\ (Destionation-index)\leftarrow (Destionation-index)\pm1$ |<br>|     字     | $ (Source-index)\leftarrow (Source-index)\pm2\\ (Destionation-index)\leftarrow (Destionation-index)\pm2$ |</p>
 <p>该指令把源地址寄存器指向的数据段中的一个字节、字或双字与目的变址寄存器所指向的附加段中的一个字节、字或者双字相减，但不保存结果，只根据结果置标志码，指令的其他特性和<code>MOVS</code>的规定相同。<br><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxiwdbyej308a078t8y.jpg" alt=""></p>
 <ol>
 <li>SCAS（scan string）串扫描指令<br>一般格式：  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SCAS DST</div><div class="line">SCASB (字节)</div><div class="line">SCASW (字)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>| :——–: | :———————————————————-: |<br>|    字节    | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 $ |<br>|     字     | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 $ |<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
+<p>功能如下：<br>| 操作数类型 |                             操作                             |<br>|:——–:|:———————————————————-:|<br>|    字节    | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm1 $ |<br>|     字     | $ (AL)-((Destionation-index)),(Destionation-index)\leftarrow (Destionation-index)\pm2 $ |<br>指令把<code>AL</code>、<code>AX</code>的内容与由目的变址寄存器指向的在附加段中的一个字符、字进行比较，并不保存结果，只根据结果设置条件码。指令的其他特性和<code>MOVS</code>的规定相同。</p>
 <p><img src="https://ws1.sinaimg.cn/large/006rvSvvgy1fwzxodna1wj30aa057q34.jpg" alt=""></p>
 <p>(更的有点慢啊…)</p>
 
